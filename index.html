@@ -137,19 +137,11 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
   position:absolute;inset:-40px;z-index:-1;border-radius:50%;
   background:radial-gradient(circle,rgba(217,138,61,.28),transparent 65%);filter:blur(20px);
 }
-/* Steam doodle — sits BEHIND the phone (z-index:-1) with its base tucked
-   under the phone's top edge so the wisps read as steam rising out of the
-   device, not as two detached orange lines floating above it. The previous
-   top:-46px left it fully in the gap above the phone, which looked like
-   stray vertical strokes when the layout was forced wide (Chrome "Desktop
-   site" on a phone renders the desktop DOM into a narrow viewport). */
-.steam{position:absolute;top:-22px;left:50%;transform:translateX(-50%);opacity:.45;z-index:-1}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
   .eyebrow,.cta-row,.hero-meta{justify-content:center}
   .hero-sub{margin-left:auto;margin-right:auto}
   .hero-phone{order:-1;max-width:280px}
-  .steam{display:none}
 }
 
 /* ============ MARQUEE / TRUST STRIP ============ */
@@ -306,9 +298,6 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="hero-media">
         <div class="hero-phone reveal">
-          <svg class="steam" width="60" height="48" viewBox="0 0 60 48" fill="none" stroke="#d98a3d" stroke-width="2.5" stroke-linecap="round" opacity=".55">
-            <path d="M18 44c-4-8 4-12 0-20s4-12 0-20"/><path d="M42 44c-4-8 4-12 0-20s4-12 0-20"/>
-          </svg>
           <div class="hero-phone-glow"></div>
           <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Impasto timeline showing each dough step with its exact clock time" loading="eager"></div></div>
         </div>
