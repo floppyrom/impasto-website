@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impasto — Plan great pizza dough, down to the hour</title>
+<meta name="description" content="Impasto turns 'I want pizza tomorrow night' into a plan you can follow. Pick when you want to eat — it schedules every mix, fold and proof backwards from there. Free, offline, ad-free.">
+<meta property="og:title" content="Impasto — Plan great pizza dough">
+<meta property="og:description" content="Tell it when you want to eat. It plans the dough backwards from there.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,800;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4ecd8;
+  --bg-card:#faf5e6;
+  --bg-deep:#efe5cc;
+  --char:#2a1e15;
+  --ink:#1a1410;
+  --ink-soft:#5c4a3d;
+  --ink-mute:#75604f;
+  --rule:#d9cdb1;
+  --rule-soft:#e8deba;
+  --tomato:#b63c2d;
+  --tomato-dark:#8a2a1e;
+  --crust:#d98a3d;
+  --font-display:'Fraunces','Georgia',serif;
+  --font-body:'Manrope',system-ui,sans-serif;
+  --font-mono:'DM Mono',ui-monospace,monospace;
+  --maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* Paper grain + warm vignette */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(217,138,61,.10), transparent 60%),
+    radial-gradient(100% 60% at 100% 100%, rgba(182,60,45,.05), transparent 55%);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ============ NAV ============ */
+nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(140%) blur(10px);
+  background:rgba(244,236,216,.82);
+  border-bottom:1px solid var(--rule-soft);
+}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{font-family:var(--font-display);font-weight:600;font-size:24px;letter-spacing:-.01em;color:var(--char);display:flex;align-items:center;gap:0}
+.brand .a{color:var(--tomato);font-style:italic}
+.nav-links{display:flex;align-items:center;gap:30px;font-size:14.5px;font-weight:500;color:var(--ink-soft)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--tomato)}
+.nav-cta{
+  font-family:var(--font-body);font-weight:600;font-size:14px;
+  background:var(--char);color:var(--bg-card);
+  padding:10px 18px;border-radius:999px;transition:transform .2s, background .2s;
+}
+.nav-cta:hover{background:var(--tomato);transform:translateY(-1px)}
+@media(max-width:720px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ============ HERO ============ */
+.hero{padding:72px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--tomato);font-weight:500;display:flex;align-items:center;gap:10px;margin-bottom:22px;
+}
+.eyebrow::before{content:'';width:28px;height:1.5px;background:var(--tomato);display:inline-block}
+h1{
+  font-family:var(--font-display);font-weight:300;font-size:clamp(42px,6vw,76px);
+  line-height:1.02;letter-spacing:-.02em;color:var(--char);margin-bottom:26px;
+}
+h1 em{font-style:italic;color:var(--tomato);font-weight:400}
+.hero-sub{font-size:clamp(17px,2.1vw,20px);color:var(--ink-soft);max-width:30em;margin-bottom:34px}
+.hero-sub b{color:var(--ink);font-weight:600}
+.cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.btn-primary{
+  font-family:var(--font-body);font-weight:600;font-size:15.5px;
+  background:var(--tomato);color:#fff;padding:15px 28px;border-radius:999px;
+  display:inline-flex;align-items:center;gap:10px;
+  box-shadow:0 10px 28px -10px rgba(182,60,45,.6);
+  transition:transform .2s, box-shadow .2s, background .2s;
+}
+.btn-primary:hover{transform:translateY(-2px);background:var(--tomato-dark);box-shadow:0 16px 34px -12px rgba(138,42,30,.65)}
+.btn-primary svg{width:18px;height:18px}
+.hero-meta{display:flex;gap:22px;font-size:13.5px;color:var(--ink-mute);font-weight:500;align-items:center}
+.hero-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--crust)}
+
+/* Phone frame (CSS, reusable) */
+.phone{
+  position:relative;border-radius:42px;background:#16110e;
+  padding:10px;box-shadow:0 40px 80px -30px rgba(40,24,12,.55),0 8px 24px -12px rgba(40,24,12,.4);
+}
+.phone::before{ /* camera pill */
+  content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);
+  width:74px;height:18px;background:#0b0807;border-radius:999px;z-index:3;
+}
+.phone img{border-radius:33px;display:block;width:100%}
+/* The screenshots are tall scrolling captures, so their content would
+   otherwise cut off hard at the frame's bottom edge — reading as an odd
+   dark band. We fade the bottom of each screenshot into the bezel using a
+   gradient OVERLAY layered on top of the image (not a mask on the image
+   itself). This is deliberately robust: the <img> always renders normally,
+   and the fade is a purely cosmetic layer, so there is no way for it to
+   blank the screenshot. */
+.phone-screen{border-radius:33px;overflow:hidden;background:#faf5e6;position:relative}
+.phone-screen img{display:block;width:100%;border-radius:0}
+.phone-screen::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:14%;
+  background:linear-gradient(to bottom,rgba(250,245,230,0),#faf5e6);
+  pointer-events:none;
+}
+.hero-phone{max-width:330px;margin:0 auto;position:relative;animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-phone-glow{
+  position:absolute;inset:-40px;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,138,61,.28),transparent 65%);filter:blur(20px);
+}
+/* steam doodle */
+.steam{position:absolute;top:-46px;left:50%;transform:translateX(-50%);opacity:.5}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
+  .eyebrow,.cta-row,.hero-meta{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-phone{order:-1;max-width:280px}
+  .steam{display:none}
+}
+
+/* ============ MARQUEE / TRUST STRIP ============ */
+.strip{border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);background:var(--bg-deep);margin-top:54px;padding:22px 0}
+.strip-inner{display:flex;justify-content:center;gap:46px;flex-wrap:wrap;font-family:var(--font-mono);font-size:13px;letter-spacing:.04em;color:var(--ink-mute)}
+.strip-inner span{display:inline-flex;align-items:center;gap:9px}
+.strip-inner b{color:var(--char);font-weight:500;font-family:var(--font-body)}
+
+/* ============ SECTION SHELL ============ */
+section{position:relative}
+.sec{padding:96px 0}
+.sec-head{max-width:42em;margin:0 auto 64px;text-align:center}
+.sec-tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--tomato);font-weight:500;margin-bottom:16px}
+.sec-head h2{font-family:var(--font-display);font-weight:300;font-size:clamp(32px,4.4vw,52px);line-height:1.08;letter-spacing:-.02em;color:var(--char);margin-bottom:18px}
+.sec-head h2 em{font-style:italic;color:var(--tomato);font-weight:400}
+.sec-head p{font-size:17px;color:var(--ink-soft)}
+
+/* ============ FEATURE ROWS (alternating) ============ */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:60px 0}
+.feat:nth-child(even) .feat-media{order:2}
+.feat-copy .kicker{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--crust);font-weight:500;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+.feat-copy h3{font-family:var(--font-display);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.12;letter-spacing:-.01em;color:var(--char);margin-bottom:18px}
+.feat-copy p{font-size:16.5px;color:var(--ink-soft);margin-bottom:18px;max-width:32em}
+.feat-list{list-style:none;display:flex;flex-direction:column;gap:12px}
+.feat-list li{display:flex;gap:13px;font-size:15.5px;color:var(--ink-soft);align-items:flex-start}
+.feat-list li svg{flex:0 0 auto;width:20px;height:20px;margin-top:2px;color:var(--tomato)}
+.feat-list li b{color:var(--ink);font-weight:600}
+.feat-media{display:flex;justify-content:center}
+.feat-media .phone{max-width:300px;width:100%}
+@media(max-width:880px){
+  .feat{grid-template-columns:1fr;gap:36px;padding:44px 0;text-align:center}
+  .feat:nth-child(even) .feat-media{order:0}
+  .feat-copy .kicker{justify-content:center}
+  .feat-copy p{margin-left:auto;margin-right:auto}
+  .feat-list{align-items:flex-start;max-width:24em;margin:0 auto;text-align:left}
+  .feat-media .phone{max-width:260px}
+}
+
+/* ============ TIMELINE SHOWCASE (signature) ============ */
+.tl-sec{background:var(--bg-deep);border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft)}
+.tl-track{max-width:680px;margin:0 auto;position:relative;padding-left:46px}
+.tl-track::before{content:'';position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--rule),var(--crust),var(--rule))}
+.tl-step{position:relative;padding:0 0 38px}
+.tl-step:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:-40px;top:3px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center}
+.tl-dot.act{background:var(--tomato);box-shadow:0 0 0 5px rgba(182,60,45,.16)}
+.tl-dot.wait{background:transparent;border:2.5px solid var(--rule);}
+.tl-dot.act::after{content:'';width:7px;height:7px;border-radius:50%;background:#fff}
+.tl-when{font-family:var(--font-mono);font-size:12.5px;color:var(--tomato);letter-spacing:.04em;font-weight:500;margin-bottom:3px}
+.tl-what{font-family:var(--font-display);font-size:20px;color:var(--char);font-weight:500;margin-bottom:5px}
+.tl-desc{font-size:14.5px;color:var(--ink-soft);max-width:34em}
+.tl-legend{display:flex;gap:24px;justify-content:center;margin-bottom:46px;font-size:13.5px;color:var(--ink-mute)}
+.tl-legend span{display:inline-flex;align-items:center;gap:9px}
+.tl-legend i{width:15px;height:15px;border-radius:50%;display:inline-block}
+.tl-legend i.act{background:var(--tomato)}
+.tl-legend i.wait{border:2.5px solid var(--rule)}
+
+/* ============ FEATURE GRID (smaller cards) ============ */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{
+  background:var(--bg-card);border:1px solid var(--rule-soft);border-radius:20px;padding:30px 26px;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 44px -26px rgba(40,24,12,.4);border-color:var(--rule)}
+.card-ico{width:46px;height:46px;border-radius:13px;background:var(--bg-deep);display:grid;place-items:center;margin-bottom:18px;color:var(--tomato)}
+.card-ico svg{width:23px;height:23px}
+.card h4{font-family:var(--font-display);font-weight:500;font-size:20px;color:var(--char);margin-bottom:9px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+@media(max-width:880px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+
+/* ============ STYLES STRIP ============ */
+.styles{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.style-card{background:var(--bg-card);border:1px solid var(--rule-soft);border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
+.style-card .num{font-family:var(--font-mono);font-size:11px;color:var(--crust);letter-spacing:.12em}
+.style-card h4{font-family:var(--font-display);font-weight:500;font-size:22px;color:var(--char);margin:8px 0 8px}
+.style-card p{font-size:13.5px;color:var(--ink-soft)}
+.style-card .temp{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;color:var(--tomato);font-weight:500}
+@media(max-width:880px){.styles{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.styles{grid-template-columns:1fr}}
+
+/* ============ GALLERY ============ */
+.gallery{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;align-items:flex-start}
+.gallery .phone{max-width:240px;width:100%}
+.gallery .gcap{text-align:center;font-size:13.5px;color:var(--ink-mute);margin-top:16px;font-weight:500;max-width:240px}
+
+/* ============ CTA ============ */
+.cta-sec{text-align:center}
+.cta-card{
+  background:linear-gradient(160deg,#2a1e15,#1a1410);color:var(--bg-card);
+  border-radius:32px;padding:72px 40px;position:relative;overflow:hidden;
+}
+.cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 0%,rgba(217,138,61,.22),transparent 60%)}
+.cta-card>*{position:relative}
+.cta-card h2{font-family:var(--font-display);font-weight:300;font-size:clamp(32px,4.6vw,54px);line-height:1.06;margin-bottom:20px;letter-spacing:-.02em}
+.cta-card h2 em{font-style:italic;color:var(--crust)}
+.cta-card p{font-size:17px;color:rgba(250,245,230,.74);max-width:32em;margin:0 auto 34px}
+.btn-light{background:var(--bg-card);color:var(--char);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+.btn-light:hover{background:#fff;color:var(--tomato-dark)}
+.cta-free{margin-top:22px;font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;color:rgba(250,245,230,.55)}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.foot-brand{font-family:var(--font-display);font-size:21px;color:var(--char);font-weight:600}
+.foot-brand .a{color:var(--tomato);font-style:italic}
+.foot-tag{font-family:var(--font-mono);font-size:12.5px;color:var(--ink-mute);letter-spacing:.04em}
+.foot-links{display:flex;gap:24px;font-size:14px;color:var(--ink-soft)}
+.foot-links a:hover{color:var(--tomato)}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-phone{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="brand">Imp<span class="a">a</span>sto</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#styles">Styles</a>
+      <a href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto" class="nav-cta">Get the app</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow reveal">Pizzeria · di casa</div>
+        <h1 class="reveal">Pizza dough,<br>planned to the <em>hour.</em></h1>
+        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there — calculating every mix, fold, rest and proof so the dough is ready <b>exactly when you are.</b> No guesswork, no 3 a.m. alarms.</p>
+        <div class="cta-row reveal">
+          <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
+            Get it on Google Play
+          </a>
+        </div>
+        <div class="hero-meta reveal" style="margin-top:24px">
+          <span>Free &amp; ad-free</span><span class="dot"></span>
+          <span>Works offline</span><span class="dot"></span>
+          <span>11 languages</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-phone reveal">
+          <svg class="steam" width="60" height="48" viewBox="0 0 60 48" fill="none" stroke="#d98a3d" stroke-width="2.5" stroke-linecap="round" opacity=".55">
+            <path d="M18 44c-4-8 4-12 0-20s4-12 0-20"/><path d="M42 44c-4-8 4-12 0-20s4-12 0-20"/>
+          </svg>
+          <div class="hero-phone-glow"></div>
+          <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Impasto timeline showing each dough step with its exact clock time" loading="eager"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="strip">
+    <div class="strip-inner">
+      <span><b>4</b> styles</span>
+      <span><b>3</b> fermentation paces</span>
+      <span><b>poolish · biga · direct</b></span>
+      <span>precise to the <b>gram</b></span>
+      <span>timed to the <b>hour</b></span>
+    </div>
+  </div>
+</header>
+
+<!-- HOW IT WORKS -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">How it works</div>
+      <h2>Three taps from craving to a <em>plan.</em></h2>
+      <p>Most dough calculators hand you a list of grams and leave you to figure out the timing. Impasto starts with your schedule and builds the recipe around it.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg></div>
+        <h4>1 · Pick your moment</h4>
+        <p>Choose the day and hour you want to pull pizza from the oven. That single choice anchors everything else.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/></svg></div>
+        <h4>2 · Dial it in</h4>
+        <p>Style, pace, hydration, number of pizzas, ball weight. Impasto recalculates the recipe to the gram, instantly.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>3 · Follow the timeline</h4>
+        <p>Every step shows the real clock time it happens. Optional reminders tap you on the shoulder when it's time to act.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: TIMELINE -->
+<section class="sec" id="features" style="padding-top:30px">
+  <div class="wrap">
+    <div class="feat">
+      <div class="feat-media reveal">
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Timeline of dough steps with clock times" loading="lazy"></div></div>
+      </div>
+      <div class="feat-copy reveal">
+        <div class="kicker">Il tempo · the timeline</div>
+        <h3>Every step, at the exact hour it happens.</h3>
+        <p>No more "rest for 4 hours" and mental arithmetic. Impasto shows <b>"Fri 14:00"</b>, not "after 4 hours." Filled dots are the moments you do something; hollow dots are the long waits while the dough does the work.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real clock times</b> for every mix, fold, shape and bake.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware scheduling</b> — it spots steps that land overnight and offers a gentle shift.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Optional reminders</b> so you can get on with your day.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FEATURE: RECIPE -->
+    <div class="feat">
+      <div class="feat-media reveal">
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-recipe.webp" alt="Ingredient breakdown to the gram" loading="lazy"></div></div>
+      </div>
+      <div class="feat-copy reveal">
+        <div class="kicker">La ricetta · the recipe</div>
+        <h3>Precise to the gram, scaled to your batch.</h3>
+        <p>Flour, water, salt, oil, sugar and yeast — all calculated to the gram and shown as baker's percentages. Change the number of pizzas or the ball weight and everything recalculates on the spot.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full <b>preferment maths</b> for poolish and biga, handled for you.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tune <b>hydration, salt, oil and sugar</b> to taste.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Metric or imperial — <b>your units.</b></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FEATURE: FLOUR -->
+    <div class="feat">
+      <div class="feat-media reveal">
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-flour.webp" alt="Flour recommendation with real-world brands" loading="lazy"></div></div>
+      </div>
+      <div class="feat-copy reveal">
+        <div class="kicker">La farina · the flour</div>
+        <h3>The right flour, with real-world picks.</h3>
+        <p>Impasto matches the strength your recipe actually needs to flours you can buy — by W-value, P/L ratio and protein — then names specific bags and blends.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Named picks: <b>Caputo, King Arthur, Le 5 Stagioni, Polselli</b> and more.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Blend suggestions</b> for long fermentations.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Substitutes when your first choice isn't on the shelf.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE SHOWCASE (signature visual, built in HTML) -->
+<section class="sec tl-sec">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">A real schedule</div>
+      <h2>Here's a <em>Neapolitan poolish</em>, baking Sunday at 7pm.</h2>
+      <p>This is what Impasto builds for you — read top to bottom, act on the filled dots, relax on the hollow ones.</p>
+    </div>
+    <div class="tl-legend reveal">
+      <span><i class="act"></i> do something</span>
+      <span><i class="wait"></i> wait / ferment</span>
+    </div>
+    <div class="tl-track">
+      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Fri 19:00 · poolish</div><div class="tl-what">Mix the poolish</div><div class="tl-desc">Whisk a pinch of yeast into water, stir in flour until smooth, cover. 12–14 h at room temperature.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Fri 19:00 → Sat 08:00</div><div class="tl-what">Overnight rise</div><div class="tl-desc">The poolish matures while you sleep — bubbled, fragrant, ready by morning.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sat 08:00 · build</div><div class="tl-what">Build the final dough</div><div class="tl-desc">Combine poolish, remaining water and flour. Autolyse, add salt, knead to windowpane-thin.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Sat 09:00 → Sun 15:00</div><div class="tl-what">Cold ferment</div><div class="tl-desc">Into the fridge for the long, flavour-deepening rest. The dough does all the work.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sun 15:00 · shape</div><div class="tl-what">Divide &amp; ball</div><div class="tl-desc">Split into tight balls, set in a proofing box for the final rise.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sun 19:00 · bake</div><div class="tl-what">Stretch &amp; bake</div><div class="tl-desc">Open each ball, dress, and launch into a screaming-hot oven. Dinner, exactly on time.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section class="sec" id="styles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">Four styles</div>
+      <h2>Tuned to your oven and your <em>taste.</em></h2>
+      <p>Each style carries its own dough behaviour, hydration range and oven profile — whether you've got a pizza oven or a regular kitchen one.</p>
+    </div>
+    <div class="styles">
+      <div class="style-card reveal"><div class="num">01</div><h4>Home Oven</h4><p>Crisp bottom, lightly charred edges, properly melted cheese — built for a steel or stone in a normal oven.</p><div class="temp">~250°C · 6–9 min</div></div>
+      <div class="style-card reveal"><div class="num">02</div><h4>Neapolitan</h4><p>Soft, pillowy, leopard-spotted. For a screaming-hot wood-fired or pizza oven.</p><div class="temp">~450°C · 60–90 s</div></div>
+      <div class="style-card reveal"><div class="num">03</div><h4>New York</h4><p>Foldable and structured, with oil and sugar in the dough. Home-oven friendly.</p><div class="temp">~275°C · 6–10 min</div></div>
+      <div class="style-card reveal"><div class="num">04</div><h4>New Haven</h4><p>Thin, rustic, charred — minimal toppings, maximum crust character.</p><div class="temp">~340°C · 4–6 min</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MORE FEATURES GRID -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">And the rest</div>
+      <h2>Built to live in your <em>kitchen.</em></h2>
+    </div>
+    <div class="grid">
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 17.3l-5.4 3 1-6-4.3-4.2 6-.9L12 3l2.7 5.2 6 .9-4.3 4.2 1 6z" stroke-linejoin="round"/></svg></div>
+        <h4>Il Risultato — a bake diary</h4>
+        <p>Log how each bake turned out with a star rating, tasting notes and photos of your crust and crumb.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v16M4 9h4M4 14h4" stroke-linecap="round"/></svg></div>
+        <h4>Active, Recent &amp; Saved</h4>
+        <p>Plan several bakes at once, keep your history, and re-bake a favourite any time with a fresh schedule.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-7-4.3-9.5-9C1 8.5 3 5 6.5 5 9 5 12 8 12 8s3-3 5.5-3C21 5 23 8.5 21.5 12 19 16.7 12 21 12 21z" stroke-linejoin="round"/></svg></div>
+        <h4>Works fully offline</h4>
+        <p>No account, no sign-up, no internet. Your kitchen doesn't need Wi-Fi to make great pizza.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Your data, exportable</h4>
+        <p>Everything is stored on your device. Export a full backup whenever you like, and restore it just as easily.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h4>Share any recipe</h4>
+        <p>Send a clean, readable recipe — ingredients, schedule and preferment notes — straight to a friend.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" /></svg></div>
+        <h4>Speaks 11 languages</h4>
+        <p>English, Italian, Spanish, German, French, Dutch, Portuguese (BR &amp; PT), Romanian, Polish and Turkish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">A look inside</div>
+      <h2>Considered, warm, <em>uncluttered.</em></h2>
+    </div>
+    <div class="gallery">
+      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker" loading="lazy"></div></div><div class="gcap">Pick your style in seconds</div></div>
+      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-flour.webp" alt="Flour recommendation" loading="lazy"></div></div><div class="gcap">Know exactly which flour to buy</div></div>
+      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas list" loading="lazy"></div></div><div class="gcap">Several bakes, never a missed step</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta-sec">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <h2>Pick a time.<br>Make the dough.<br><em>Eat great pizza.</em></h2>
+      <p>Impasto is free, ad-free, and built by people who care about good dough. Every feature is yours, free, forever.</p>
+      <a class="btn-primary btn-light" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
+        Get it on Google Play
+      </a>
+      <div class="cta-free">Misura · riposa · inforna</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div>
+        <div class="foot-brand">Imp<span class="a">a</span>sto</div>
+        <div class="foot-tag">Mass to the gram · time to the hour · flavour to the note</div>
+      </div>
+      <div class="foot-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">Download</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal with stagger inside groups
+(function(){
+  var els = [].slice.call(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var el = en.target;
+        // stagger siblings within the same grid/track
+        var sibs = [].slice.call(el.parentNode.children).filter(function(c){return c.classList.contains('reveal')});
+        var idx = sibs.indexOf(el);
+        el.style.transitionDelay = (Math.max(0,idx)*70)+'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+</body>
+</html>
