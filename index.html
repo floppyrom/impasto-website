@@ -137,8 +137,13 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
   position:absolute;inset:-40px;z-index:-1;border-radius:50%;
   background:radial-gradient(circle,rgba(217,138,61,.28),transparent 65%);filter:blur(20px);
 }
-/* steam doodle */
-.steam{position:absolute;top:-46px;left:50%;transform:translateX(-50%);opacity:.5}
+/* Steam doodle — sits BEHIND the phone (z-index:-1) with its base tucked
+   under the phone's top edge so the wisps read as steam rising out of the
+   device, not as two detached orange lines floating above it. The previous
+   top:-46px left it fully in the gap above the phone, which looked like
+   stray vertical strokes when the layout was forced wide (Chrome "Desktop
+   site" on a phone renders the desktop DOM into a narrow viewport). */
+.steam{position:absolute;top:-22px;left:50%;transform:translateX(-50%);opacity:.45;z-index:-1}
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:36px;text-align:center}
   .eyebrow,.cta-row,.hero-meta{justify-content:center}
