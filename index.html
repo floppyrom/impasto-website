@@ -272,6 +272,57 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   .reveal{opacity:1;transform:none;transition:none}
   .hero-phone{animation:none}
 }
+/* ============ WATER-TEMP DIAGRAM (concept graphic) ============ */
+.wtemp{width:100%;max-width:322px;margin:0 auto;background:var(--bg-card);border:1px solid var(--rule-soft);border-radius:26px;padding:28px 26px;box-shadow:0 34px 66px -36px rgba(40,24,12,.45)}
+.wtemp-tag{font-family:var(--font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:18px}
+.wt-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px dashed var(--rule)}
+.wt-in:first-of-type{padding-top:0}
+.wt-label{font-size:14.5px;color:var(--ink-soft)}
+.wt-label b{display:block;font-family:var(--font-mono);font-size:10.5px;color:var(--ink-mute);letter-spacing:.04em;font-weight:400;margin-top:2px}
+.wt-val{font-family:var(--font-display);font-size:23px;color:var(--char);font-weight:500;white-space:nowrap}
+.wt-val .u{font-size:14px;color:var(--ink-mute)}
+.wt-arrow{display:grid;place-items:center;margin:15px 0 13px;color:var(--crust)}
+.wt-arrow svg{width:24px;height:24px}
+.wt-out{background:linear-gradient(160deg,#2a1e15,#1a1410);border-radius:18px;padding:20px;text-align:center}
+.wt-out .t{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(250,245,230,.6);margin-bottom:7px}
+.wt-out .v{font-family:var(--font-display);font-weight:400;font-size:40px;line-height:1;color:#fff}
+.wt-out .v em{font-style:normal;color:var(--crust)}
+
+/* ============ DARK-MODE PHONE (HTML mock, no screenshot needed) ============ */
+.phone-dark .phone-screen{background:#171009}
+.phone-dark .phone-screen::after{background:linear-gradient(to bottom,rgba(23,16,9,0),#171009)}
+.dk{background:#171009;padding:26px 22px 40px;font-family:var(--font-body);min-height:534px;box-sizing:border-box}
+.dk-h{font-family:var(--font-display);font-size:17px;color:#f4ecd8;margin-bottom:3px}
+.dk-sub{font-family:var(--font-mono);font-size:10px;color:#8f7659;letter-spacing:.05em;margin-bottom:20px}
+.dk-tl{position:relative;padding-left:28px}
+.dk-tl::before{content:'';position:absolute;left:6px;top:6px;bottom:10px;width:2px;background:#3a2c1e}
+.dk-s{position:relative;padding-bottom:22px}
+.dk-s:last-child{padding-bottom:0}
+.dk-d{position:absolute;left:-28px;top:2px;width:15px;height:15px;border-radius:50%;box-sizing:border-box}
+.dk-d.act{background:#d3624e;box-shadow:0 0 0 4px rgba(211,98,78,.18)}
+.dk-d.wait{background:#171009;border:2.5px solid #4a3925}
+.dk-w{font-family:var(--font-mono);font-size:10px;color:#d3624e;letter-spacing:.05em;margin-bottom:3px}
+.dk-t{font-family:var(--font-display);font-size:15.5px;color:#f2e7d2;margin-bottom:3px}
+.dk-p{font-size:11.5px;color:#a89075;line-height:1.5}
+
+/* ============ BAKE-LATER MODAL (HTML mock, uniform frame) ============ */
+.bl-screen{background:var(--bg-deep);position:relative;min-height:540px;overflow:hidden}
+.bl-behind{padding:22px 20px;opacity:.45;filter:blur(.5px)}
+.bl-behind .dk-w{color:var(--tomato)}
+.bl-behind .dk-t{color:var(--char)}
+.bl-behind .dk-tl::before{background:var(--rule)}
+.bl-behind .dk-d.wait{background:var(--bg-deep);border-color:var(--rule)}
+.bl-dim{position:absolute;inset:0;background:rgba(26,20,16,.30)}
+.bl-modal{position:absolute;left:16px;right:16px;top:74px;background:var(--bg-card);border-radius:24px;padding:26px 22px;box-shadow:0 34px 70px -22px rgba(0,0,0,.55)}
+.bl-title{font-family:var(--font-display);text-align:center;font-size:23px;color:var(--char);margin-bottom:15px}
+.bl-desc{font-size:12.5px;color:var(--ink-soft);text-align:center;line-height:1.55;margin-bottom:20px}
+.bl-big{text-align:center;font-size:15px;color:var(--ink-soft);margin-bottom:18px}
+.bl-big b{font-family:var(--font-display);font-size:26px;color:var(--tomato);font-weight:500;margin-right:6px}
+.bl-slider{height:8px;border-radius:999px;background:var(--rule-soft);position:relative;margin:0 6px 10px}
+.bl-knob{position:absolute;left:0;top:50%;transform:translate(-1px,-50%);width:24px;height:24px;border-radius:50%;background:var(--tomato);border:4px solid var(--bg-card);box-shadow:0 2px 7px rgba(0,0,0,.3)}
+.bl-ends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-mute);margin:0 2px 18px}
+.bl-btn{background:var(--char);color:var(--bg-card);text-align:center;font-weight:700;font-size:14.5px;padding:15px;border-radius:999px;margin-bottom:11px}
+.bl-btn2{border:1px solid var(--rule);color:var(--ink-soft);text-align:center;font-size:14.5px;padding:13px;border-radius:999px}
 </style>
 </head>
 <body>
@@ -302,7 +353,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
             Get it on Google Play
           </a>
-          <a class="btn-primary" href="https://apps.apple.com/us/app/impasto-pizza-dough-planner/id6782157714">
+          <a class="btn-primary" href="https://apps.apple.com/app/impasto-pizza-dough-planner/id6782157714">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.3-.9-2.3-3.6ZM14.3 6.4c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2Z"/></svg>
             Download on the App Store
           </a>
@@ -328,6 +379,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <span><b>poolish · biga · direct</b></span>
       <span>precise to the <b>gram</b></span>
       <span>timed to the <b>hour</b></span>
+      <span>water to the <b>degree</b></span>
     </div>
   </div>
 </header>
@@ -373,6 +425,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
         <p>No more "rest for 4 hours" and mental arithmetic. Impasto shows <b>"Fri 14:00"</b>, not "after 4 hours." Filled dots are the moments you do something; hollow dots are the long waits while the dough does the work.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real clock times</b> for every mix, fold, shape and bake.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b> follows your bake in real time — always know the current step at a glance.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware scheduling</b> — it spots steps that land overnight and offers a gentle shift.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Optional reminders</b> so you can get on with your day.</span></li>
         </ul>
@@ -409,6 +462,31 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Named picks: <b>Caputo, King Arthur, Le 5 Stagioni, Polselli</b> and more.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Blend suggestions</b> for long fermentations.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Substitutes when your first choice isn't on the shelf.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FEATURE: WATER TEMPERATURE / DDT -->
+    <div class="feat">
+      <div class="feat-media reveal">
+        <div class="wtemp">
+          <div class="wtemp-tag">Water temperature</div>
+          <div class="wt-in"><div class="wt-label">Target dough<b>after mixing</b></div><div class="wt-val">24<span class="u">°C</span></div></div>
+          <div class="wt-in"><div class="wt-label">Your kitchen<b>right now</b></div><div class="wt-val">21<span class="u">°C</span></div></div>
+          <div class="wt-in"><div class="wt-label">Mixing by hand<b>friction heat</b></div><div class="wt-val">+2<span class="u">°C</span></div></div>
+          <div class="wt-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wt-out"><div class="t">Use water at</div><div class="v"><em>28</em>°C</div></div>
+        </div>
+      </div>
+      <div class="feat-copy reveal">
+        <div class="kicker">La temperatura · dough temperature</div>
+        <h3>Water to the degree — temperature is a recipe too.</h3>
+        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto back-calculates the exact water temperature to hit that target, reading your kitchen's warmth and the way you mix — then drops the number straight into the mix step.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aims for a <b>~24°C final dough</b> — the sweet spot for clean, predictable fermentation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen</b> — a hot room gets cooler water, a cold room gets warmer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Knows your mixer</b> — hands, stand mixer and food processor each add different friction heat, so the water shifts to match.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Preferments and cold retards are folded in too — no side maths, ever.</span></li>
         </ul>
       </div>
     </div>
@@ -464,16 +542,6 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     </div>
     <div class="grid">
       <div class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v4M12 7a5 5 0 015 5v4a3 3 0 01-3 3h-4a3 3 0 01-3-3v-4a5 5 0 015-5zM9 21h6M12 11v6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h4>Bake Later</h4>
-        <p>Plans changed? Chill your dough to push the bake back — Impasto reworks the schedule and reminds you when to pull it from the fridge.</p>
-      </div>
-      <div class="card reveal">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z" stroke-linejoin="round"/></svg></div>
-        <h4>Dark mode</h4>
-        <p>A warm, low-glare theme for late-night dough sessions. Follows your system automatically, or set it yourself.</p>
-      </div>
-      <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 17.3l-5.4 3 1-6-4.3-4.2 6-.9L12 3l2.7 5.2 6 .9-4.3 4.2 1 6z" stroke-linejoin="round"/></svg></div>
         <h4>Il Risultato — a bake diary</h4>
         <p>Log how each bake turned out with a star rating, tasting notes and photos of your crust and crumb.</p>
@@ -507,18 +575,60 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   </div>
 </section>
 
-<!-- GALLERY -->
+<!-- A LOOK INSIDE — dark mode + bake later (HTML mocks) + wizard + active (screenshots) -->
 <section class="sec" style="padding-top:20px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="sec-tag">A look inside</div>
       <h2>Considered, warm, <em>uncluttered.</em></h2>
+      <p>From first setup to a late-night bake — every screen stays calm, legible and out of your way.</p>
     </div>
     <div class="gallery">
-      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker" loading="lazy"></div></div><div class="gcap">Pick your style in seconds</div></div>
-      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-bakelater.webp" alt="Bake Later — chill the dough to push the bake back" loading="lazy"></div></div><div class="gcap">Running late? Bake later</div></div>
-      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-flour.webp" alt="Flour recommendation" loading="lazy"></div></div><div class="gcap">Know exactly which flour to buy</div></div>
-      <div class="reveal"><div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas list" loading="lazy"></div></div><div class="gcap">Several bakes, never a missed step</div></div>
+      <div class="reveal">
+        <div class="phone phone-dark"><div class="phone-screen">
+          <div class="dk">
+            <div class="dk-h">Il tempo</div>
+            <div class="dk-sub">NEAPOLITAN · POOLISH · 65%</div>
+            <div class="dk-tl">
+              <div class="dk-s"><div class="dk-d act"></div><div class="dk-w">FRI 19:00 · POOLISH</div><div class="dk-t">Mix the poolish</div><div class="dk-p">Whisk yeast into water, stir in flour until smooth. 12–14 h at room temperature.</div></div>
+              <div class="dk-s"><div class="dk-d wait"></div><div class="dk-w">SAT 09:00 → SUN 15:00</div><div class="dk-t">Cold ferment</div><div class="dk-p">Into the fridge for the long, flavour-deepening rest.</div></div>
+              <div class="dk-s"><div class="dk-d act"></div><div class="dk-w">SUN 15:00 · SHAPE</div><div class="dk-t">Divide &amp; ball</div><div class="dk-p">Split into tight balls, set them up for the final proof.</div></div>
+            </div>
+          </div>
+        </div></div>
+        <div class="gcap">A warm dark mode, easy on late-night eyes</div>
+      </div>
+      <div class="reveal">
+        <div class="phone"><div class="phone-screen">
+          <div class="bl-screen">
+            <div class="bl-behind">
+              <div class="dk-tl">
+                <div class="dk-s"><div class="dk-d act"></div><div class="dk-w">BULK FERMENT</div><div class="dk-t">Bulk rise</div><div class="dk-p">Cover and leave at room temperature.</div></div>
+                <div class="dk-s"><div class="dk-d wait"></div><div class="dk-w">SHAPE</div><div class="dk-t">Divide &amp; ball</div><div class="dk-p">Split into tight balls.</div></div>
+              </div>
+            </div>
+            <div class="bl-dim"></div>
+            <div class="bl-modal">
+              <div class="bl-title">Bake later</div>
+              <div class="bl-desc">Your dough is bulk fermenting. Chill it now to push your bake up to 24 h later (by Fri 15:23).</div>
+              <div class="bl-big"><b>+1 h</b> bake at Thu 16:23</div>
+              <div class="bl-slider"><div class="bl-knob"></div></div>
+              <div class="bl-ends"><span>+1 h</span><span>+24 h</span></div>
+              <div class="bl-btn">Put in the fridge</div>
+              <div class="bl-btn2">Cancel</div>
+            </div>
+          </div>
+        </div></div>
+        <div class="gcap">Running late? Chill it and bake later</div>
+      </div>
+      <div class="reveal">
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker — Home oven, Neapolitan, New York, New Haven" loading="lazy"></div></div>
+        <div class="gcap">Set up in seconds — style, pace, done</div>
+      </div>
+      <div class="reveal">
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas — several scheduled bakes at once" loading="lazy"></div></div>
+        <div class="gcap">Several bakes at once, never a missed step</div>
+      </div>
     </div>
   </div>
 </section>
@@ -534,7 +644,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
           Get it on Google Play
         </a>
-        <a class="btn-primary btn-light" href="https://apps.apple.com/us/app/impasto-pizza-dough-planner/id6782157714">
+        <a class="btn-primary btn-light" href="https://apps.apple.com/app/impasto-pizza-dough-planner/id6782157714">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.2 1.8-3.3 1.9-3.3-1-1.5-2.6-1.7-3.2-1.7-1.4-.1-2.6.8-3.3.8-.7 0-1.7-.8-2.8-.8-1.4 0-2.8.8-3.5 2.1-1.5 2.6-.4 6.5 1.1 8.6.7 1 1.6 2.2 2.7 2.1 1.1 0 1.5-.7 2.8-.7 1.3 0 1.6.7 2.8.7 1.2 0 1.9-1 2.6-2.1.8-1.2 1.2-2.4 1.2-2.4s-2.3-.9-2.3-3.6ZM14.3 6.4c.6-.7 1-1.7.9-2.7-.9 0-1.9.6-2.5 1.3-.5.6-1 1.6-.9 2.6 1 .1 2-.5 2.5-1.2Z"/></svg>
           Download on the App Store
         </a>
@@ -556,7 +666,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
         <a href="#how">How it works</a>
         <a href="#features">Features</a>
         <a href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">Google Play</a>
-        <a href="https://apps.apple.com/us/app/impasto-pizza-dough-planner/id6782157714">App Store</a>
+        <a href="https://apps.apple.com/app/impasto-pizza-dough-planner/id6782157714">App Store</a>
       </div>
     </div>
   </div>
