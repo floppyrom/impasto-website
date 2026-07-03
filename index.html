@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impasto — Plan great pizza dough, down to the hour</title>
-<meta name="description" content="Impasto turns 'I want pizza tomorrow night' into a plan you can follow. Pick when you want to eat — it schedules every mix, fold and proof backwards from there. Free, offline, ad-free.">
-<meta property="og:title" content="Impasto — Plan great pizza dough">
+<title>Impasto: Plan great pizza dough, down to the hour</title>
+<meta name="description" content="Impasto turns 'I want pizza tomorrow night' into a plan you can follow. Pick when you want to eat, and it schedules every mix, fold and proof backwards from there. Free, offline, ad-free.">
+<meta property="og:title" content="Impasto: Plan great pizza dough">
 <meta property="og:description" content="Tell it when you want to eat. It plans the dough backwards from there.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://impastopizza.app/">
@@ -14,12 +14,12 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/png">
-<meta property="og:image:alt" content="Impasto — a pizza dough planner. Tell it when you want to eat; it plans every step backwards to the hour.">
+<meta property="og:image:alt" content="Impasto: a pizza dough planner. Tell it when you want to eat; it plans every step backwards to the hour.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Impasto — Plan great pizza dough">
+<meta name="twitter:title" content="Impasto: Plan great pizza dough">
 <meta name="twitter:description" content="Tell it when you want to eat. It plans the dough backwards from there.">
 <meta name="twitter:image" content="https://impastopizza.app/assets/og-image.png">
-<meta name="twitter:image:alt" content="Impasto — a pizza dough planner, showing a baking timeline with each step at a real clock time.">
+<meta name="twitter:image:alt" content="Impasto: a pizza dough planner, showing a baking timeline with each step at a real clock time.">
 <link rel="canonical" href="https://impastopizza.app/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -151,7 +151,7 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
 }
 .phone img{border-radius:33px;display:block;width:100%}
 /* The screenshots are tall scrolling captures, so their content would
-   otherwise cut off hard at the frame's bottom edge — reading as an odd
+   otherwise cut off hard at the frame's bottom edge, reading as an odd
    dark band. We fade the bottom of each screenshot into the bezel using a
    gradient OVERLAY layered on top of the image (not a mask on the image
    itself). This is deliberately robust: the <img> always renders normally,
@@ -164,8 +164,7 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
   background:linear-gradient(to bottom,rgba(250,245,230,0),#faf5e6);
   pointer-events:none;
 }
-.hero-phone{max-width:330px;margin:0 auto;position:relative;animation:floaty 6s ease-in-out infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-phone{max-width:330px;margin:0 auto;position:relative}
 .hero-phone-glow{
   position:absolute;inset:-40px;z-index:-1;border-radius:50%;
   background:radial-gradient(circle,rgba(217,138,61,.28),transparent 65%);filter:blur(20px);
@@ -290,7 +289,6 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .hero-phone{animation:none}
 }
 /* ============ WATER-TEMP DIAGRAM (concept graphic) ============ */
 .wtemp{width:100%;max-width:322px;margin:0 auto;background:var(--bg-card);border:1px solid var(--rule-soft);border-radius:26px;padding:28px 26px;box-shadow:0 34px 66px -36px rgba(40,24,12,.45)}
@@ -318,7 +316,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 .phone-screen.mock{aspect-ratio:720 / 1608}
 .phone-screen.mock > div{height:100%}
 /* The bottom fade exists to soften tall scrolling screenshots; the HTML mocks
-   are complete screens, so no fade — it would otherwise dim the last step. */
+   are complete screens, so no fade, since it would otherwise dim the last step. */
 .phone-screen.mock::after{display:none}
 .dk{background:#171009;padding:26px 22px 30px;font-family:var(--font-body);height:100%;box-sizing:border-box;overflow:hidden}
 .dk-h{font-family:var(--font-display);font-size:17px;color:#f4ecd8;margin-bottom:3px}
@@ -386,7 +384,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="hero-copy">
         <div class="eyebrow reveal">Pizzeria · di casa</div>
         <h1 class="reveal">Pizza dough,<br>planned to the <em>hour.</em></h1>
-        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there — calculating every mix, fold, rest and proof so the dough is ready <b>exactly when you are.</b> No guesswork, no 3 a.m. alarms.</p>
+        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there, calculating every mix, fold, rest and proof so the dough is ready <b>exactly when you are.</b> No guesswork, no 3 a.m. alarms.</p>
         <div class="cta-row reveal">
           <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
@@ -462,8 +460,8 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
         <p>No more "rest for 4 hours" and mental arithmetic. Impasto shows <b>"Fri 14:00"</b>, not "after 4 hours." Filled dots are the moments you do something; hollow dots are the long waits while the dough does the work.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real clock times</b> for every mix, fold, shape and bake.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b> follows your bake in real time — always know the current step at a glance.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware scheduling</b> — it spots steps that land overnight and offers a gentle shift.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b> follows your bake in real time, so you always know the current step at a glance.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware scheduling</b> that spots steps that land overnight and offers a gentle shift.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Optional reminders</b> so you can get on with your day.</span></li>
         </ul>
       </div>
@@ -476,11 +474,11 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="feat-copy reveal">
         <div class="kicker">La ricetta · the recipe</div>
         <h3>Precise to the gram, scaled to your batch.</h3>
-        <p>Flour, water, salt, oil, sugar and yeast — all calculated to the gram and shown as baker's percentages. Change the number of pizzas or the ball weight and everything recalculates on the spot.</p>
+        <p>Flour, water, salt, oil, sugar and yeast, all calculated to the gram and shown as baker's percentages. Change the number of pizzas or the ball weight and everything recalculates on the spot.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Full <b>preferment maths</b> for poolish and biga, handled for you.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tune <b>hydration, salt, oil and sugar</b> to taste.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Metric or imperial — <b>your units.</b></span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Metric or imperial, <b>your units.</b></span></li>
         </ul>
       </div>
     </div>
@@ -492,7 +490,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="feat-copy reveal">
         <div class="kicker">La farina · the flour</div>
         <h3>The right flour, with real-world picks.</h3>
-        <p>Impasto matches the strength your recipe actually needs to flours you can buy — by W-value, P/L ratio and protein — then names specific bags and blends.</p>
+        <p>Impasto matches the strength your recipe actually needs to flours you can buy, using W-value, P/L ratio and protein, then names specific bags and blends.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Named picks: <b>Caputo, King Arthur, Le 5 Stagioni, Polselli</b> and more.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Blend suggestions</b> for long fermentations.</span></li>
@@ -514,13 +512,13 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">La temperatura · dough temperature</div>
-        <h3>Water to the degree — temperature is a recipe too.</h3>
-        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto back-calculates the exact water temperature to hit that target, reading your kitchen's warmth and the way you mix — then drops the number straight into the mix step.</p>
+        <h3>Water to the degree. Temperature is a recipe too.</h3>
+        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto back-calculates the exact water temperature to hit that target, reading your kitchen's warmth and the way you mix, then drops the number straight into the mix step.</p>
         <ul class="feat-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aims for a <b>~24°C final dough</b> — the sweet spot for clean, predictable fermentation.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen</b> — a hot room gets cooler water, a cold room gets warmer.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Knows your mixer</b> — hands, stand mixer and food processor each add different friction heat, so the water shifts to match.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Preferments and cold retards are folded in too — no side maths, ever.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Aims for a <b>~24°C final dough</b>, the sweet spot for clean, predictable fermentation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen</b>: a hot room gets cooler water, a cold room gets warmer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Knows your mixer</b>: hands, stand mixer and food processor each add different friction heat, so the water shifts to match.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Preferments and cold retards are folded in too, with no side maths, ever.</span></li>
         </ul>
       </div>
     </div>
@@ -532,7 +530,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="sec-head reveal">
       <div class="sec-tag">A real schedule</div>
       <h2>Here's a <em>Neapolitan poolish</em>, baking Sunday at 7pm.</h2>
-      <p>This is what Impasto builds for you — read top to bottom, act on the filled dots, relax on the hollow ones.</p>
+      <p>This is what Impasto builds for you. Read top to bottom, act on the filled dots, relax on the hollow ones.</p>
     </div>
     <div class="tl-legend reveal">
       <span><i class="act"></i> do something</span>
@@ -540,7 +538,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     </div>
     <div class="tl-track">
       <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Fri 19:00 · poolish</div><div class="tl-what">Mix the poolish</div><div class="tl-desc">Whisk a pinch of yeast into water, stir in flour until smooth, cover. 12–14 h at room temperature.</div></div>
-      <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Fri 19:00 → Sat 08:00</div><div class="tl-what">Overnight rise</div><div class="tl-desc">The poolish matures while you sleep — bubbled, fragrant, ready by morning.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Fri 19:00 → Sat 08:00</div><div class="tl-what">Overnight rise</div><div class="tl-desc">The poolish matures while you sleep: bubbled, fragrant, ready by morning.</div></div>
       <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sat 08:00 · build</div><div class="tl-what">Build the final dough</div><div class="tl-desc">Combine poolish, remaining water and flour. Autolyse, add salt, knead to windowpane-thin.</div></div>
       <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Sat 09:00 → Sun 15:00</div><div class="tl-what">Cold ferment</div><div class="tl-desc">Into the fridge for the long, flavour-deepening rest. The dough does all the work.</div></div>
       <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sun 15:00 · shape</div><div class="tl-what">Divide &amp; ball</div><div class="tl-desc">Split into tight balls, set in a proofing box for the final rise.</div></div>
@@ -554,13 +552,13 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="sec-head reveal">
       <div class="sec-tag">Four styles</div>
       <h2>Tuned to your oven and your <em>taste.</em></h2>
-      <p>Each style carries its own dough behaviour, hydration range and oven profile — whether you've got a pizza oven or a regular kitchen one.</p>
+      <p>Each style carries its own dough behaviour, hydration range and oven profile, whether you've got a pizza oven or a regular kitchen one.</p>
     </div>
     <div class="styles">
-      <div class="style-card reveal"><div class="num">01</div><h4>Home Oven</h4><p>Crisp bottom, lightly charred edges, properly melted cheese — built for a steel or stone in a normal oven.</p><div class="temp">~250°C · 6–9 min</div></div>
+      <div class="style-card reveal"><div class="num">01</div><h4>Home Oven</h4><p>Crisp bottom, lightly charred edges, properly melted cheese, built for a steel or stone in a normal oven.</p><div class="temp">~250°C · 6–9 min</div></div>
       <div class="style-card reveal"><div class="num">02</div><h4>Neapolitan</h4><p>Soft, pillowy, leopard-spotted. For a screaming-hot wood-fired or pizza oven.</p><div class="temp">~450°C · 60–90 s</div></div>
       <div class="style-card reveal"><div class="num">03</div><h4>New York</h4><p>Foldable and structured, with oil and sugar in the dough. Home-oven friendly.</p><div class="temp">~275°C · 6–10 min</div></div>
-      <div class="style-card reveal"><div class="num">04</div><h4>New Haven</h4><p>Thin, rustic, charred — minimal toppings, maximum crust character.</p><div class="temp">~340°C · 4–6 min</div></div>
+      <div class="style-card reveal"><div class="num">04</div><h4>New Haven</h4><p>Thin, rustic, charred, with minimal toppings and maximum crust character.</p><div class="temp">~340°C · 4–6 min</div></div>
     </div>
   </div>
 </section>
@@ -574,7 +572,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="grid">
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 17.3l-5.4 3 1-6-4.3-4.2 6-.9L12 3l2.7 5.2 6 .9-4.3 4.2 1 6z" stroke-linejoin="round"/></svg></div>
-        <h4>Il Risultato — a bake diary</h4>
+        <h4>Il Risultato, a bake diary</h4>
         <p>Log how each bake turned out with a star rating, tasting notes and photos of your crust and crumb.</p>
       </div>
       <div class="card reveal">
@@ -595,7 +593,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7M16 6l-4-4-4 4M12 2v13" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h4>Share any recipe</h4>
-        <p>Send a clean, readable recipe — ingredients, schedule and preferment notes — straight to a friend.</p>
+        <p>Send a clean, readable recipe (ingredients, schedule and preferment notes) straight to a friend.</p>
       </div>
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" /></svg></div>
@@ -611,15 +609,15 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="sec-head reveal">
       <div class="sec-tag">A look inside</div>
       <h2>Considered, warm, <em>uncluttered.</em></h2>
-      <p>From first setup to a late-night bake — every screen stays calm, legible and out of your way.</p>
+      <p>From first setup to a late-night bake, every screen stays calm, legible and out of your way.</p>
     </div>
     <div class="gallery">
       <div class="reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker — Home oven, Neapolitan, New York, New Haven" loading="lazy"></div></div>
-        <div class="gcap">Set up in seconds — style, pace, done</div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker: Home oven, Neapolitan, New York, New Haven" loading="lazy"></div></div>
+        <div class="gcap">Set up in seconds. Style, pace, done.</div>
       </div>
       <div class="reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas — several scheduled bakes at once" loading="lazy"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas: several scheduled bakes at once" loading="lazy"></div></div>
         <div class="gcap">Several bakes at once, never a missed step</div>
       </div>
       <div class="reveal">
