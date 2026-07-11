@@ -331,25 +331,6 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 .dk-w{font-family:var(--font-mono);font-size:10px;color:#d3624e;letter-spacing:.05em;margin-bottom:3px}
 .dk-t{font-family:var(--font-display);font-size:15.5px;color:#f2e7d2;margin-bottom:3px}
 .dk-p{font-size:11.5px;color:#a89075;line-height:1.5}
-
-/* ============ BAKE-LATER MODAL (HTML mock, uniform frame) ============ */
-.bl-screen{background:var(--bg-deep);position:relative;height:100%;overflow:hidden}
-.bl-behind{padding:22px 20px;opacity:.45;filter:blur(.5px)}
-.bl-behind .dk-w{color:var(--tomato)}
-.bl-behind .dk-t{color:var(--char)}
-.bl-behind .dk-tl::before{background:var(--rule)}
-.bl-behind .dk-d.wait{background:var(--bg-deep);border-color:var(--rule)}
-.bl-dim{position:absolute;inset:0;background:rgba(26,20,16,.30)}
-.bl-modal{position:absolute;left:16px;right:16px;top:50%;transform:translateY(-50%);background:var(--bg-card);border-radius:24px;padding:24px 22px;box-shadow:0 34px 70px -22px rgba(0,0,0,.55)}
-.bl-title{font-family:var(--font-display);text-align:center;font-size:23px;color:var(--char);margin-bottom:12px}
-.bl-desc{font-size:12.5px;color:var(--ink-soft);text-align:center;line-height:1.5;margin-bottom:16px}
-.bl-big{text-align:center;font-size:14px;color:var(--ink-soft);margin-bottom:16px}
-.bl-big b{font-family:var(--font-display);font-size:24px;color:var(--tomato);font-weight:500;margin-right:6px}
-.bl-slider{height:8px;border-radius:999px;background:var(--rule-soft);position:relative;margin:0 6px 9px}
-.bl-knob{position:absolute;left:0;top:50%;transform:translate(-1px,-50%);width:24px;height:24px;border-radius:50%;background:var(--tomato);border:4px solid var(--bg-card);box-shadow:0 2px 7px rgba(0,0,0,.3)}
-.bl-ends{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-mute);margin:0 2px 16px}
-.bl-btn{background:var(--char);color:var(--bg-card);text-align:center;font-weight:700;font-size:14.5px;padding:14px;border-radius:999px;margin-bottom:10px}
-.bl-btn2{border:1px solid var(--rule);color:var(--ink-soft);text-align:center;font-size:14.5px;padding:12px;border-radius:999px}
 </style>
 </head>
 <body>
@@ -721,25 +702,8 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
         <div class="gcap">A warm dark mode, easy on late-night eyes</div>
       </div>
       <div class="reveal">
-        <div class="phone"><div class="phone-screen mock">
-          <div class="bl-screen">
-            <div class="bl-behind">
-              <div class="dk-tl">
-                <div class="dk-s"><div class="dk-d act"></div><div class="dk-w">BULK FERMENT</div><div class="dk-t">Bulk rise</div><div class="dk-p">Cover and leave at room temperature.</div></div>
-                <div class="dk-s"><div class="dk-d wait"></div><div class="dk-w">SHAPE</div><div class="dk-t">Divide &amp; ball</div><div class="dk-p">Split into tight balls.</div></div>
-              </div>
-            </div>
-            <div class="bl-dim"></div>
-            <div class="bl-modal">
-              <div class="bl-title">Bake later</div>
-              <div class="bl-desc">Your dough is bulk fermenting. Chill it now to push your bake up to 24 h later (by Fri 15:23).</div>
-              <div class="bl-big"><b>+1 h</b> bake at Thu 16:23</div>
-              <div class="bl-slider"><div class="bl-knob"></div></div>
-              <div class="bl-ends"><span>+1 h</span><span>+24 h</span></div>
-              <div class="bl-btn">Put in the fridge</div>
-              <div class="bl-btn2">Cancel</div>
-            </div>
-          </div>
+        <div class="phone"><div class="phone-screen">
+          <img src="assets/screen-bakelater.webp" alt="Bake later sheet: chill the dough now and push the bake up to 24 hours later" loading="lazy">
         </div></div>
         <div class="gcap">Running late? Chill it and bake later</div>
       </div>
