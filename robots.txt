@@ -1,0 +1,5 @@
+# https://impastopizza.app/
+User-agent: *
+Allow: /
+
+Sitemap: https://impastopizza.app/sitemap.xml
