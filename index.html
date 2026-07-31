@@ -257,14 +257,15 @@ section{position:relative}
 @media(max-width:560px){.grid{grid-template-columns:1fr}}
 
 /* ============ STYLES STRIP ============ */
-.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.styles{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:8px}
+.style-card{flex:1 1 280px;max-width:360px}
 .style-card{background:var(--bg-card);border:1px solid var(--rule-soft);border-radius:18px;padding:26px 22px;position:relative;overflow:hidden}
 .style-card .num{font-family:var(--font-mono);font-size:11px;color:var(--crust);letter-spacing:.12em}
 .style-card h4{font-family:var(--font-display);font-weight:500;font-size:22px;color:var(--char);margin:8px 0 8px}
 .style-card p{font-size:13.5px;color:var(--ink-soft)}
 .style-card .temp{margin-top:14px;font-family:var(--font-mono);font-size:12.5px;color:var(--tomato);font-weight:500}
-@media(max-width:880px){.styles{grid-template-columns:1fr 1fr}}
-@media(max-width:480px){.styles{grid-template-columns:1fr}}
+@media(max-width:880px){.style-card{flex:1 1 260px}}
+@media(max-width:480px){.style-card{flex:1 1 100%}}
 
 /* ============ GALLERY ============ */
 .gallery{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;align-items:flex-start}
@@ -403,7 +404,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   </div>
   <div class="strip">
     <div class="strip-inner">
-      <span><b>6</b> styles</span>
+      <span><b>7</b> styles</span>
       <span><b>3</b> fermentation paces</span>
       <span><b>direct · poolish · biga · sourdough</b></span>
       <span>precise to the <b>gram</b></span>
@@ -627,7 +628,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 <section class="sec" id="styles">
   <div class="wrap">
     <div class="sec-head reveal">
-      <div class="sec-tag">Six styles</div>
+      <div class="sec-tag">Seven styles</div>
       <h2>Tuned to your oven and your <em>taste.</em></h2>
       <p>Each style carries its own dough behaviour, hydration range and oven profile, whether you've got a pizza oven, a regular kitchen one, or a battered steel pan.</p>
     </div>
@@ -636,8 +637,9 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="style-card reveal"><div class="num">02</div><h4>Neapolitan</h4><p>Soft, pillowy, leopard-spotted. For a screaming-hot wood-fired or pizza oven.</p><div class="temp">~450°C · 60–90 s</div></div>
       <div class="style-card reveal"><div class="num">03</div><h4>New York</h4><p>Foldable and structured, with oil and sugar in the dough. Home-oven friendly.</p><div class="temp">~275°C · 6–10 min</div></div>
       <div class="style-card reveal"><div class="num">04</div><h4>New Haven</h4><p>Thin, rustic, charred, with minimal toppings and maximum crust character.</p><div class="temp">~340°C · 4–6 min</div></div>
-      <div class="style-card reveal"><div class="num">05</div><h4>Detroit</h4><p>Thick but airy, fried crisp underneath, with cheese taken to the pan wall so it caramelises into a frico edge.</p><div class="temp">~275°C · 12–18 min</div></div>
-      <div class="style-card reveal"><div class="num">06</div><h4>Roman teglia</h4><p>Crisp underneath, light and honeycombed inside. High hydration, baked in a tray and cut into rectangles.</p><div class="temp">~300°C · 12–20 min</div></div>
+      <div class="style-card reveal"><div class="num">05</div><h4>Roman tonda</h4><p>Rolled thin with a pin, crisp from centre to edge. No cornicione, and a dry snap when you cut it.</p><div class="temp">~320°C · 4–7 min</div></div>
+      <div class="style-card reveal"><div class="num">06</div><h4>Detroit</h4><p>Thick but airy, fried crisp underneath, with cheese taken to the pan wall so it caramelises into a frico edge.</p><div class="temp">~275°C · 12–18 min</div></div>
+      <div class="style-card reveal"><div class="num">07</div><h4>Roman teglia</h4><p>Crisp underneath, light and honeycombed inside. High hydration, baked in a tray and cut into rectangles.</p><div class="temp">~300°C · 12–20 min</div></div>
     </div>
   </div>
 </section>
@@ -692,7 +694,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     </div>
     <div class="gallery">
       <div class="reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker: Home oven, Neapolitan, New York, New Haven, Detroit, Roman teglia" loading="lazy"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker: Home oven, Neapolitan, New York, New Haven, Roman tonda, Detroit, Roman teglia" loading="lazy"></div></div>
         <div class="gcap">Set up in seconds. Style, pace, done.</div>
       </div>
       <div class="reveal">
