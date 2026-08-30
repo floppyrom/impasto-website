@@ -1,4 +1,3 @@
-# https://impastopizza.app/
 User-agent: *
 Allow: /
 
