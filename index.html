@@ -241,7 +241,7 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
   content:'';position:absolute;top:20px;left:50%;transform:translateX(-50%);
   width:74px;height:18px;background:#0b0807;border-radius:999px;z-index:3;
 }
-.phone img{border-radius:33px;display:block;width:100%}
+.phone img{border-radius:33px;display:block;width:100%;height:auto}
 /* The screenshots are tall scrolling captures, so their content would
    otherwise cut off hard at the frame's bottom edge, reading as an odd
    dark band. We fade the bottom of each screenshot into the bezel using a
@@ -250,7 +250,7 @@ h1 em{font-style:italic;color:var(--tomato);font-weight:400}
    and the fade is a purely cosmetic layer, so there is no way for it to
    blank the screenshot. */
 .phone-screen{border-radius:33px;overflow:hidden;background:#faf5e6;position:relative}
-.phone-screen img{display:block;width:100%;border-radius:0}
+.phone-screen img{display:block;width:100%;height:auto;border-radius:0}
 .phone-screen::after{
   content:'';position:absolute;left:0;right:0;bottom:0;height:14%;
   background:linear-gradient(to bottom,rgba(250,245,230,0),#faf5e6);
@@ -483,7 +483,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <div class="hero-media">
         <div class="hero-phone reveal">
           <div class="hero-phone-glow"></div>
-          <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Impasto timeline showing each dough step with its exact clock time" width="720" height="1608" loading="eager" fetchpriority="high" decoding="async"></div></div>
+          <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Impasto timeline showing each dough step with its exact clock time" loading="eager" fetchpriority="high" decoding="async"></div></div>
         </div>
       </div>
     </div>
@@ -531,7 +531,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   <div class="wrap">
     <div class="feat">
       <div class="feat-media reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Timeline of dough steps with clock times" loading="lazy" width="720" height="1608" decoding="async"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Timeline of dough steps with clock times" loading="lazy" decoding="async"></div></div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">Il tempo · the timeline</div>
@@ -548,7 +548,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 
     <div class="feat">
       <div class="feat-media reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-recipe.webp" alt="Ingredient breakdown to the gram" loading="lazy" width="720" height="1608" decoding="async"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-recipe.webp" alt="Ingredient breakdown to the gram" loading="lazy" decoding="async"></div></div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">La ricetta · the recipe</div>
@@ -565,7 +565,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 
     <div class="feat">
       <div class="feat-media reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-flour.webp" alt="Flour recommendation with real-world brands" loading="lazy" width="720" height="1608" decoding="async"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-flour.webp" alt="Flour recommendation with real-world brands" loading="lazy" decoding="async"></div></div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">La farina · the flour</div>
@@ -831,11 +831,11 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     </div>
     <div class="gallery">
       <div class="reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker: Home oven, Neapolitan, New York, New Haven, Roman tonda, Detroit, Roman teglia" loading="lazy" width="720" height="1608" decoding="async"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-wizard.webp" alt="Style picker: Home oven, Neapolitan, New York, New Haven, Roman tonda, Detroit, Roman teglia" loading="lazy" decoding="async"></div></div>
         <div class="gcap">Set up in seconds. Style, pace, done.</div>
       </div>
       <div class="reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas: several scheduled bakes at once" loading="lazy" width="720" height="1608" decoding="async"></div></div>
+        <div class="phone"><div class="phone-screen"><img src="assets/screen-active.webp" alt="Active pizzas: several scheduled bakes at once" loading="lazy" decoding="async"></div></div>
         <div class="gcap">Several bakes at once, never a missed step</div>
       </div>
       <div class="reveal">
@@ -855,7 +855,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="reveal">
         <div class="phone"><div class="phone-screen">
-          <img src="assets/screen-bakelater.webp" alt="Bake later sheet: chill the dough now and push the bake up to 24 hours later" loading="lazy" width="720" height="1608" decoding="async">
+          <img src="assets/screen-bakelater.webp" alt="Bake later sheet: chill the dough now and push the bake up to 24 hours later" loading="lazy" decoding="async">
         </div></div>
         <div class="gcap">Running late? Chill it and bake later</div>
       </div>
