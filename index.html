@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pizza Dough Calculator &amp; Fermentation Planner | Impasto</title>
-<meta name="description" content="Free pizza dough calculator and fermentation planner for seven styles. Choose your bake time and Impasto plans ingredients, fermentation, mixing and reminders.">
+<meta name="description" content="Free pizza dough calculator and fermentation planner for seven styles, with Live Bake, target dough temperature, Proof Check, reminders and bake journaling.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="application-name" content="Impasto">
 <meta name="apple-itunes-app" content="app-id=6782157714, app-argument=https://impastopizza.app/">
 <meta property="og:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta property="og:description" content="Choose when you want to bake. Impasto works backwards to calculate ingredients, fermentation, mixing and reminders for seven pizza styles.">
+<meta property="og:description" content="Plan pizza backwards from bake time, then follow the final stretch with Live Bake on iPhone and Android. Seven styles, dough-temperature guidance, Proof Check and more.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://impastopizza.app/">
 <meta property="og:site_name" content="Impasto">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Impasto: a pizza dough planner. Tell it when you want to eat; it plans every step backwards to the hour.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta name="twitter:description" content="Choose a bake time. Impasto plans ingredients, fermentation, mixing and reminders backwards from there.">
+<meta name="twitter:description" content="Plan pizza backwards from bake time, then follow the final stretch with Live Bake on iPhone and Android.">
 <meta name="twitter:image" content="https://impastopizza.app/assets/og-image.png">
 <meta name="twitter:image:alt" content="Impasto: a pizza dough planner, showing a baking timeline with each step at a real clock time.">
 <link rel="canonical" href="https://impastopizza.app/">
@@ -45,7 +45,7 @@
       "name": "Impasto",
       "alternateName": "Impasto: Pizza Dough Planner",
       "url": "https://impastopizza.app/",
-      "description": "A free pizza dough calculator and fermentation planner for seven pizza styles, with real clock-time schedules, preferments, sourdough, flour guidance, Proof Check and bake journaling.",
+      "description": "A free pizza dough calculator and fermentation planner for seven pizza styles, with Live Bake, real clock-time schedules, mixer-aware target dough temperature, preferments, sourdough, Proof Check, Bake Later and bake journaling.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": [
         "Android",
@@ -72,17 +72,25 @@
       "screenshot": [
         "https://impastopizza.app/assets/screen-timeline.webp",
         "https://impastopizza.app/assets/screen-recipe.webp",
-        "https://impastopizza.app/assets/screen-flour.webp"
+        "https://impastopizza.app/assets/screen-flour.webp",
+        "https://impastopizza.app/assets/screen-livebake-ios.webp",
+        "https://impastopizza.app/assets/screen-livebake-android.webp"
       ],
       "featureList": [
         "Backwards scheduling from bake time",
+        "Live Bake with iOS Live Activities and Android Live Updates",
+        "Live phase, next action and bake countdown",
         "Seven pizza styles",
         "Direct dough, poolish, biga and sourdough",
+        "Mixer-aware target dough temperature",
         "Method-specific mixing guidance",
-        "Water temperature calculation",
         "Flour recommendations",
         "Proof Check temperature adjustment",
+        "Bake Later schedule recovery",
+        "Multiple simultaneous active bakes",
         "Bake journal with ratings, notes and photos",
+        "Dark mode",
+        "Recipe sharing and backup/restore",
         "Offline recipe planning",
         "Metric and imperial units",
         "Eleven languages"
@@ -472,6 +480,61 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 .wt-out .v{font-family:var(--font-display);font-weight:400;font-size:40px;line-height:1;color:#fff}
 .wt-out .v em{font-style:normal;color:var(--crust)}
 
+/* ============ LIVE BAKE ============ */
+.livebake-feature{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:58px;
+  align-items:center;
+  padding:64px 0;
+}
+.livebake-copy > p{max-width:34em}
+.livebake-media{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:start;
+  min-width:0;
+}
+.live-platform{min-width:0;text-align:center}
+.live-platform .phone{width:100%;max-width:250px;margin:0 auto}
+.live-platform .phone.live-os::before{display:none}
+.live-platform .phone-screen{background:#111;border-radius:33px}
+.live-platform .phone-screen::after{display:none}
+.live-platform .phone-screen img{width:100%;height:auto}
+.live-platform figcaption{
+  font-size:13px;color:var(--ink-mute);font-weight:500;
+  margin:14px auto 0;max-width:240px;line-height:1.45;
+}
+.live-platform figcaption b{color:var(--char);font-weight:600}
+.live-island{
+  margin:16px auto 0;max-width:250px;background:#15110e;border-radius:18px;padding:7px;
+  box-shadow:0 18px 34px -24px rgba(40,24,12,.6);
+}
+.live-island img{width:100%;height:auto;border-radius:13px}
+.live-island-cap{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;
+  color:var(--ink-mute);margin-top:8px;
+}
+.live-note{
+  margin-top:18px;padding:13px 15px;border-left:3px solid var(--crust);
+  background:rgba(250,245,230,.58);border-radius:0 12px 12px 0;
+  font-size:13.5px!important;color:var(--ink-soft)!important;
+}
+@media(max-width:980px){
+  .livebake-feature{grid-template-columns:1fr;gap:40px;padding:48px 0}
+  .livebake-copy{text-align:center;max-width:720px;margin:0 auto;order:1}
+  .livebake-copy .kicker{justify-content:center}
+  .livebake-copy > p{margin-left:auto;margin-right:auto}
+  .livebake-copy .feat-list{max-width:34em;margin-left:auto;margin-right:auto;text-align:left}
+  .livebake-media{max-width:570px;margin:0 auto;width:100%;order:2}
+}
+@media(max-width:620px){
+  .livebake-media{grid-template-columns:1fr;gap:34px}
+  .live-platform .phone{max-width:268px}
+  .live-island{max-width:268px}
+}
+
 /* ============ DARK-MODE PHONE (HTML mock, no screenshot needed) ============ */
 .phone-dark .* {box-sizing:border-box}
 .phone-dark .phone-screen{background:#171009}
@@ -508,6 +571,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="nav-links">
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
+      <a href="#livebake">Live Bake</a>
       <a href="#sourdough">Sourdough</a>
       <a href="#proofcheck">Proof check</a>
       <a href="#styles">Styles</a>
@@ -618,6 +682,42 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
     </div>
 
+    <div class="livebake-feature" id="livebake">
+      <div class="livebake-media" aria-label="Live Bake examples on iPhone and Android">
+        <figure class="live-platform reveal">
+          <div class="phone live-os"><div class="phone-screen">
+            <img src="assets/screen-livebake-ios.webp" alt="Impasto Live Bake on an iPhone Lock Screen showing final proof, countdown, progress and next bake action" loading="lazy" decoding="async">
+          </div></div>
+          <figcaption><b>iPhone Live Activity</b><br>Lock Screen status through the final run to the oven.</figcaption>
+          <div class="live-island">
+            <img src="assets/screen-livebake-island.webp" alt="Impasto Live Bake expanded in the iPhone Dynamic Island" loading="lazy" decoding="async">
+          </div>
+          <div class="live-island-cap">Dynamic Island · expanded</div>
+        </figure>
+
+        <figure class="live-platform reveal">
+          <div class="phone live-os"><div class="phone-screen">
+            <img src="assets/screen-livebake-android.webp" alt="Impasto Live Bake Android Live Update showing final proof, countdown, progress and next bake action" loading="lazy" decoding="async">
+          </div></div>
+          <figcaption><b>Android Live Update</b><br>At-a-glance progress on supported system surfaces.</figcaption>
+        </figure>
+      </div>
+
+      <div class="feat-copy livebake-copy reveal">
+        <div class="kicker">Il forno si avvicina · Live Bake</div>
+        <h3>Your bake, live on your phone.</h3>
+        <p>As the bake enters its final warm window, Impasto brings the important part of the timeline onto the phone itself. See what the dough is doing now, what comes next and how long remains until bake time without repeatedly opening the app.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Live Activities on iPhone</b>, including the Lock Screen and Dynamic Island.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Live Updates on Android</b> for the same at-a-glance phase, next action and bake countdown.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Proof Check and schedule changes stay in sync</b>, and a tap opens the exact pizza the live surface belongs to.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Quiet by design:</b> Live Bake shows progress persistently while ordinary notifications are reserved for moments when you actually need to act.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Dismissed it? <b>Resume Live Bake</b> from Impasto for that exact active pizza.</span></li>
+        </ul>
+        <p class="live-note">If the richer system surface is unavailable or disabled, Impasto keeps the underlying schedule and ordinary action reminders working normally.</p>
+      </div>
+    </div>
+
     <div class="feat">
       <div class="feat-media reveal">
         <div class="phone"><div class="phone-screen"><img src="assets/screen-recipe.webp" alt="Ingredient breakdown to the gram" loading="lazy" decoding="async"></div></div>
@@ -671,7 +771,8 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen</b>: a hot room gets cooler water, a cold room gets warmer.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Knows your mixer</b>: hands, stand mixer and food processor add different friction heat, so the water shifts to match.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Changes the technique too:</b> mixing time, speed and development cues adapt to hand mixing, stand mixers and food processors.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Preferments and cold retards are folded in too, with no side maths, ever.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Poolish, biga and sourdough levain</b> are included in the final-mix temperature calculation too.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>If the target is not realistically reachable within safe water temperatures, <b>Impasto tells you where the dough is likely to land</b> instead of pretending otherwise.</span></li>
         </ul>
       </div>
     </div>
@@ -967,6 +1068,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <nav class="foot-links" aria-label="Footer navigation">
         <a href="#how">How it works</a>
         <a href="#features">Features</a>
+        <a href="#livebake">Live Bake</a>
         <a href="#sourdough">Sourdough</a>
         <a href="#proofcheck">Proof check</a>
         <a href="mailto:mihaibn@gmail.com">Support</a>
