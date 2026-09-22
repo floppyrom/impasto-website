@@ -45,7 +45,7 @@
       "name": "Impasto",
       "alternateName": "Impasto: Pizza Dough Planner",
       "url": "https://impastopizza.app/",
-      "description": "A free pizza dough calculator and human-aware fermentation planner for seven pizza styles, with practical quarter-hour scheduling, sleep-aware timing, Live Bake, mixer-aware target dough temperature, preferments, sourdough, Proof Check, Bake Later and bake journaling.",
+      "description": "A free pizza dough calculator and human-aware fermentation planner for seven pizza styles, with practical quarter-hour scheduling, sleep-aware timing, Live Bake, mass-aware final-mix water temperature for preferments, sourdough, Proof Check, Bake Later and bake journaling.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": [
         "Android",
@@ -83,7 +83,8 @@
         "Live phase, next action and bake countdown",
         "Seven pizza styles",
         "Direct dough, poolish, biga and sourdough",
-        "Mixer-aware target dough temperature",
+        "Mixer- and preferment-aware final-mix water temperature",
+        "Mass-aware thermal calculation for poolish, biga and sourdough levain",
         "Method-specific mixing guidance",
         "Flour recommendations",
         "Proof Check temperature adjustment",
@@ -848,24 +849,24 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="feat">
       <div class="feat-media reveal">
         <div class="wtemp">
-          <div class="wtemp-tag">Water temperature · yeasted example</div>
+          <div class="wtemp-tag">Water temperature · 70% dough · 60% biga · stand mixer</div>
           <div class="wt-in"><div class="wt-label">Target dough<b>after mixing</b></div><div class="wt-val">24<span class="u">°C</span></div></div>
-          <div class="wt-in"><div class="wt-label">Your kitchen<b>right now</b></div><div class="wt-val">21<span class="u">°C</span></div></div>
-          <div class="wt-in"><div class="wt-label">Mixing by hand<b>friction heat</b></div><div class="wt-val">+2<span class="u">°C</span></div></div>
+          <div class="wt-in"><div class="wt-label">Kitchen + ripe biga<b>both at final mix</b></div><div class="wt-val">21<span class="u">°C</span></div></div>
+          <div class="wt-in"><div class="wt-label">Biga hydration<b>actual water already inside</b></div><div class="wt-val">45<span class="u">%</span></div></div>
           <div class="wt-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="wt-out"><div class="t">Use water at</div><div class="v"><em>28</em>°C</div></div>
+          <div class="wt-out"><div class="t">Use remaining water at</div><div class="v"><em>13</em>°C</div></div>
         </div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">La temperatura · dough temperature</div>
-        <h3>Water to the degree. Temperature is a recipe too.</h3>
-        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto back-calculates the water temperature for the recipe's target, reading your kitchen's warmth and the way you mix, then drops the number straight into the mix step.</p>
+        <h3>Water to the degree, with the preferment counted properly.</h3>
+        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto now works from what is <b>actually in the bowl</b>. For poolish, biga and sourdough, it accounts for the flour and water already inside the preferment, its temperature, and the water still left to add before giving you the final-mix water temperature.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Uses a <b>method-specific final dough target</b>: 24°C for yeasted doughs and 25.5°C for sourdough.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen</b>: a hot room gets cooler water, a cold room gets warmer.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Knows your mixer</b>: hands, stand mixer and food processor add different friction heat, so the water shifts to match.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Changes the technique too:</b> mixing time, speed and development cues adapt to hand mixing, stand mixers and food processors.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Poolish, biga and sourdough levain</b> are included in the final-mix temperature calculation too.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Preferment amount now matters thermally.</b> A small poolish or biga no longer has the same influence as one carrying most of the flour.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Uses the actual preferment composition:</b> 100% hydration poolish, 45% hydration biga, and the real levain amount and starter hydration for sourdough.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen and your mixer</b>: room temperature and the heat added by hand mixing, a stand mixer or a food processor all shift the recommendation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Changes the technique too:</b> mixing time, speed and development cues adapt to the way you mix.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>If the target is not realistically reachable within safe water temperatures, <b>Impasto tells you where the dough is likely to land</b> instead of pretending otherwise.</span></li>
         </ul>
       </div>
