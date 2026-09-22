@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pizza Dough Calculator &amp; Fermentation Planner | Impasto</title>
-<meta name="description" content="Free pizza dough calculator and fermentation planner for seven styles, with Live Bake, target dough temperature, Proof Check, reminders and bake journaling.">
+<meta name="description" content="Free pizza dough calculator with human-aware fermentation scheduling: practical quarter-hour timing, sleep-aware planning, Live Bake, Proof Check, reminders and seven pizza styles.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="application-name" content="Impasto">
 <meta name="apple-itunes-app" content="app-id=6782157714, app-argument=https://impastopizza.app/">
 <meta property="og:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta property="og:description" content="Plan pizza backwards from bake time, then follow the final stretch with Live Bake on iPhone and Android. Seven styles, dough-temperature guidance, Proof Check and more.">
+<meta property="og:description" content="Plan pizza backwards from bake time, then let Impasto shape the technical timeline around real life: quarter-hour actions, sleep-aware scheduling, Live Bake, Proof Check and more.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://impastopizza.app/">
 <meta property="og:site_name" content="Impasto">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Impasto: a pizza dough planner. Tell it when you want to eat; it plans every step backwards to the hour.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta name="twitter:description" content="Plan pizza backwards from bake time, then follow the final stretch with Live Bake on iPhone and Android.">
+<meta name="twitter:description" content="Human-aware pizza timing: Impasto works backwards from bake time, keeps fermentation constraints intact, and plans practical quarter-hour actions around your sleep window.">
 <meta name="twitter:image" content="https://impastopizza.app/assets/og-image.png">
 <meta name="twitter:image:alt" content="Impasto: a pizza dough planner, showing a baking timeline with each step at a real clock time.">
 <link rel="canonical" href="https://impastopizza.app/">
@@ -45,7 +45,7 @@
       "name": "Impasto",
       "alternateName": "Impasto: Pizza Dough Planner",
       "url": "https://impastopizza.app/",
-      "description": "A free pizza dough calculator and fermentation planner for seven pizza styles, with Live Bake, real clock-time schedules, mixer-aware target dough temperature, preferments, sourdough, Proof Check, Bake Later and bake journaling.",
+      "description": "A free pizza dough calculator and human-aware fermentation planner for seven pizza styles, with practical quarter-hour scheduling, sleep-aware timing, Live Bake, mixer-aware target dough temperature, preferments, sourdough, Proof Check, Bake Later and bake journaling.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": [
         "Android",
@@ -76,6 +76,9 @@
       ],
       "featureList": [
         "Backwards scheduling from bake time",
+        "Human-aware scheduling around sleep hours",
+        "Quarter-hour timing for calculated future actions",
+        "Completed active-bake steps stay fixed when plans change",
         "Live Bake with iOS Live Activities and Android Live Updates",
         "Live phase, next action and bake countdown",
         "Seven pizza styles",
@@ -239,6 +242,21 @@ nav{
 .nav-stores-drop a svg{width:16px;height:16px;flex:0 0 auto}
 @media(max-width:720px){.nav-links > a{display:none}}
 
+/* ============ NEW FEATURE ANNOUNCEMENT ============ */
+.hero-news{
+  display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:18px;padding:8px 12px 8px 9px;border:1px solid rgba(182,60,45,.24);
+  background:rgba(250,245,230,.72);border-radius:999px;
+  font-size:13px;color:var(--ink-soft);font-weight:600;
+}
+.hero-news .new-pill{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:4px 8px;border-radius:999px;background:var(--tomato);color:#fff;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+}
+.hero-news a{color:var(--char);transition:color .18s}
+.hero-news a:hover{color:var(--tomato)}
+
 /* ============ HERO ============ */
 .hero{padding:72px 0 40px;position:relative}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
@@ -338,6 +356,61 @@ section{position:relative}
   .feat-copy p{margin-left:auto;margin-right:auto}
   .feat-list{align-items:flex-start;max-width:24em;margin:0 auto;text-align:left}
   .feat-media .phone{max-width:260px}
+}
+
+/* ============ HUMAN-AWARE SCHEDULING ============ */
+.human-sec{
+  background:linear-gradient(180deg,rgba(239,229,204,.78),rgba(244,236,216,.95));
+  border-top:1px solid var(--rule-soft);border-bottom:1px solid var(--rule-soft);
+}
+.human-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+.human-copy .kicker{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--tomato);font-weight:500;margin-bottom:14px;
+}
+.human-copy h2{
+  font-family:var(--font-display);font-weight:300;font-size:clamp(32px,4.4vw,52px);
+  line-height:1.08;letter-spacing:-.02em;color:var(--char);margin-bottom:20px;
+}
+.human-copy h2 em{font-style:italic;color:var(--tomato);font-weight:400}
+.human-copy > p{font-size:17px;color:var(--ink-soft);margin-bottom:24px;max-width:36em}
+.human-copy .feat-list{max-width:38em}
+.smart-plan{
+  background:var(--bg-card);border:1px solid var(--rule);border-radius:24px;padding:26px;
+  box-shadow:0 24px 60px -38px rgba(42,30,21,.55);max-width:520px;width:100%;margin:0 auto;
+}
+.smart-plan-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:22px}
+.smart-plan-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--tomato);font-weight:500}
+.smart-plan-title{font-family:var(--font-display);font-size:23px;line-height:1.15;color:var(--char);margin-top:5px}
+.smart-plan-fixed{font-family:var(--font-mono);font-size:11px;color:var(--ink-mute);white-space:nowrap;padding-top:3px}
+.smart-row{display:grid;grid-template-columns:74px 1fr auto;gap:13px;align-items:center;padding:13px 0;border-top:1px solid var(--rule-soft)}
+.smart-time{font-family:var(--font-mono);font-size:14px;color:var(--tomato);font-weight:500}
+.smart-label{font-size:14px;color:var(--ink-soft);line-height:1.35}
+.smart-label b{display:block;color:var(--ink);font-weight:600}
+.smart-badge{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 7px;border-radius:999px;background:var(--bg-deep);color:var(--ink-mute);white-space:nowrap}
+.smart-badge.fixed{background:rgba(182,60,45,.10);color:var(--tomato)}
+.smart-window{margin-top:20px;padding:16px;border-radius:15px;background:var(--bg-deep);border:1px solid var(--rule-soft)}
+.smart-window-head{display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--ink-mute);margin-bottom:9px}
+.smart-window-head b{color:var(--char);font-weight:600}
+.smart-track{height:9px;border-radius:999px;background:var(--rule-soft);position:relative;overflow:hidden}
+.smart-track .sleep{position:absolute;left:0;top:0;bottom:0;width:41.66%;background:var(--char);opacity:.78}
+.smart-track .awake{position:absolute;left:41.66%;right:0;top:0;bottom:0;background:var(--crust);opacity:.65}
+.smart-note{font-size:12.5px;color:var(--ink-mute);margin-top:11px;line-height:1.5}
+.smart-logic{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.smart-logic span{font-size:11px;line-height:1.35;color:var(--ink-soft);text-align:center;padding:10px 7px;border-radius:11px;border:1px solid var(--rule-soft);background:rgba(255,255,255,.24)}
+.smart-logic b{display:block;font-family:var(--font-mono);font-size:10px;color:var(--tomato);margin-bottom:4px}
+@media(max-width:900px){
+  .human-grid{grid-template-columns:1fr;gap:38px}
+  .human-copy{text-align:center}
+  .human-copy > p{margin-left:auto;margin-right:auto}
+  .human-copy .feat-list{margin:0 auto;text-align:left}
+}
+@media(max-width:520px){
+  .smart-plan{padding:20px 16px;border-radius:20px}
+  .smart-row{grid-template-columns:62px 1fr;gap:10px}
+  .smart-badge{grid-column:2;justify-self:start;margin-top:-5px}
+  .smart-plan-fixed{white-space:normal;text-align:right}
+  .smart-logic{grid-template-columns:1fr 1fr}
 }
 
 /* ============ TIMELINE SHOWCASE (signature) ============ */
@@ -537,7 +610,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <a href="#top" class="brand">Imp<span class="a">a</span>sto</a>
     <div class="nav-links">
       <a href="#how">How it works</a>
-      <a href="#features">Features</a>
+      <a href="#human-schedule">Smart timing</a>
       <a href="#livebake">Live Bake</a>
       <a href="#sourdough">Sourdough</a>
       <a href="#proofcheck">Proof check</a>
@@ -564,9 +637,10 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
+        <div class="hero-news reveal"><span class="new-pill">New</span><a href="#human-schedule">Human-aware scheduling · see how it works →</a></div>
         <div class="eyebrow reveal">Pizzeria · di casa</div>
         <h1 class="reveal">Pizza dough,<br>planned to the <em>hour.</em></h1>
-        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there, calculating every mix, fold, rest and proof so the dough is ready <b>exactly when you are.</b> No guesswork, no 3 a.m. alarms.</p>
+        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there, then turns the technical fermentation plan into a <b>human one</b>: practical quarter-hour actions, sleep-aware timing and no rewriting steps you already completed. The dough still comes first; your night does not have to lose.</p>
         <div class="cta-row reveal">
           <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
@@ -623,8 +697,64 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h4>3 · Follow the timeline</h4>
-        <p>Every step shows the real clock time it happens. Optional reminders tap you on the shoulder when it's time to act.</p>
+        <h4>3 · Follow a human timeline</h4>
+        <p>Future actions land on practical quarter-hour times where the dough allows it, while sleep hours and fermentation limits stay part of the plan. Optional reminders tap you on the shoulder when it is time to act.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec human-sec" id="human-schedule">
+  <div class="wrap">
+    <div class="human-grid">
+      <div class="human-copy reveal">
+        <div class="kicker">Nuovo · human-aware scheduling</div>
+        <h2>Fermentation has rules.<br>So does <em>real life.</em></h2>
+        <p>A backwards calculation can optimise the dough and still leave you with awkward clock times. Impasto adds another layer: it keeps the technical limits hard, then uses the flexibility inside them to build a schedule a human can actually follow.</p>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Quarter-hour actions.</b> Calculated future steps aim for :00, :15, :30 or :45 instead of awkward times like 04:52. Your chosen bake time stays exact.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware by design.</b> Tell Impasto when you normally sleep and it pushes demanding actions away from the night and the groggy edges around it whenever the fermentation allows.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Biology stays in charge.</b> Fermentation minimums, maximums and stated technical ranges are never broken just to make the clock look nicer.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Your past stays your past.</b> Change an active bake and completed steps remain fixed. Impasto re-plans only what is still ahead, or keeps the previous schedule if the new request cannot fit.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>One schedule everywhere.</b> The timeline, reminders, Proof Check, Bake Later and Live Bake all follow the same resolved plan.</span></li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <div class="smart-plan" role="img" aria-label="Human-aware schedule showing a fixed bake time, quarter-hour actions, a sleep window and flexible fermentation stages">
+          <div class="smart-plan-top">
+            <div><div class="smart-plan-tag">Human-aware plan</div><div class="smart-plan-title">The dough's constraints,<br>fitted around your day.</div></div>
+            <div class="smart-plan-fixed">BAKE · FIXED</div>
+          </div>
+          <div class="smart-row">
+            <div class="smart-time">12:30</div>
+            <div class="smart-label"><b>Stretch &amp; bake</b>Your chosen anchor never moves.</div>
+            <div class="smart-badge fixed">exact</div>
+          </div>
+          <div class="smart-row">
+            <div class="smart-time">09:15</div>
+            <div class="smart-label"><b>Final proof</b>A future action lands on a clean quarter hour.</div>
+            <div class="smart-badge">:00 · :15 · :30 · :45</div>
+          </div>
+          <div class="smart-row">
+            <div class="smart-time">08:00</div>
+            <div class="smart-label"><b>Wake boundary</b>High-burden work is kept clear where possible.</div>
+            <div class="smart-badge">protected</div>
+          </div>
+          <div class="smart-row">
+            <div class="smart-time">—</div>
+            <div class="smart-label"><b>Flexible fermentation</b>Passive stages absorb the adjustment, but only inside their technical limits.</div>
+            <div class="smart-badge">within range</div>
+          </div>
+          <div class="smart-window">
+            <div class="smart-window-head"><span><b>Your sleep window</b></span><span>22:00 → 08:00</span></div>
+            <div class="smart-track"><span class="sleep"></span><span class="awake"></span></div>
+            <div class="smart-note">If no biologically valid comfortable schedule exists, Impasto keeps the technically valid plan instead of pretending the dough can do the impossible.</div>
+          </div>
+          <div class="smart-logic">
+            <span><b>01</b>Fix bake</span><span><b>02</b>Protect dough</span><span><b>03</b>Respect history</span><span><b>04</b>Humanise time</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -638,13 +768,13 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">Il tempo · the timeline</div>
-        <h3>Every step, at the exact hour it happens.</h3>
+        <h3>Every step at a real time you can live with.</h3>
         <p>No more "rest for 4 hours" and mental arithmetic. Impasto shows <b>"Fri 14:00"</b>, not "after 4 hours." Filled dots are the moments you do something; hollow dots are the long waits while the dough does the work.</p>
         <ul class="feat-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real clock times</b> for every mix, fold, shape and bake.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b> follows your bake in real time, so you always know the current step at a glance.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Sleep-aware scheduling</b> that spots steps that land overnight and offers a gentle shift.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Optional reminders</b> so you can get on with your day.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Human-aware scheduling</b> that actively rebalances flexible stages around your sleep window while keeping technical fermentation limits hard.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Quarter-hour actions</b> where the recipe allows it, plus optional reminders so you can get on with your day.</span></li>
         </ul>
       </div>
     </div>
@@ -833,7 +963,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="sec-head reveal">
       <div class="sec-tag">A real schedule</div>
       <h2>Here's a <em>Neapolitan poolish</em>, baking Sunday at 7pm.</h2>
-      <p>This is what Impasto builds for you. Read top to bottom, act on the filled dots, relax on the hollow ones.</p>
+      <p>This is what Impasto builds for you after the technical timeline has been resolved into practical clock times. Read top to bottom, act on the filled dots, relax on the hollow ones.</p>
     </div>
     <div class="tl-legend reveal">
       <span><i class="act"></i> do something</span>
@@ -910,6 +1040,11 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       <h2>Built to live in your <em>kitchen.</em></h2>
     </div>
     <div class="grid">
+      <div class="card reveal">
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2M5 4l2 2M19 4l-2 2" stroke-linecap="round"/></svg></div>
+        <h4>Human-aware timing</h4>
+        <p>Set your sleep hours once. Impasto keeps future actions on practical quarter-hour times where possible, without breaking fermentation limits or moving steps you already completed.</p>
+      </div>
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 17.3l-5.4 3 1-6-4.3-4.2 6-.9L12 3l2.7 5.2 6 .9-4.3 4.2 1 6z" stroke-linejoin="round"/></svg></div>
         <h4>Il Risultato, a bake diary</h4>
@@ -1004,7 +1139,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   <div class="wrap">
     <div class="cta-card reveal">
       <h2>Pick a time.<br>Make the dough.<br><em>Eat great pizza.</em></h2>
-      <p>Impasto is free and ad-free. Every feature is included, and optional tips support continued development.</p>
+      <p>Impasto is free and ad-free, including human-aware scheduling, Live Bake and every fermentation tool. Optional tips support continued development.</p>
       <div class="cta-row" style="justify-content:center">
         <a class="btn-primary btn-light" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
@@ -1031,6 +1166,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <nav class="foot-links" aria-label="Footer navigation">
         <a href="#how">How it works</a>
+        <a href="#human-schedule">Smart timing</a>
         <a href="#features">Features</a>
         <a href="#livebake">Live Bake</a>
         <a href="#sourdough">Sourdough</a>
