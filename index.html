@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pizza Dough Calculator &amp; Fermentation Planner | Impasto</title>
-<meta name="description" content="Free pizza dough calculator with human-aware fermentation scheduling: practical quarter-hour timing, sleep-aware planning, Live Bake, Proof Check, reminders and seven pizza styles.">
+<meta name="description" content="Free pizza dough calculator with human-aware scheduling, guided mixing, in-step dough temperature targets, Live Bake, Proof Check, reminders and seven pizza styles.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <meta name="application-name" content="Impasto">
 <meta name="apple-itunes-app" content="app-id=6782157714, app-argument=https://impastopizza.app/">
 <meta property="og:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta property="og:description" content="Plan pizza backwards from bake time, then let Impasto shape the technical timeline around real life: quarter-hour actions, sleep-aware scheduling, Live Bake, Proof Check and more.">
+<meta property="og:description" content="Plan pizza backwards from bake time, then follow clearer guided mixing steps with readiness cues, stop points, dough temperature targets, human-aware scheduling, Live Bake and Proof Check.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://impastopizza.app/">
 <meta property="og:site_name" content="Impasto">
@@ -22,7 +22,7 @@
 <meta property="og:image:alt" content="Impasto: a pizza dough planner. Tell it when you want to eat; it plans every step backwards to the hour.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Impasto: Pizza Dough Calculator &amp; Fermentation Planner">
-<meta name="twitter:description" content="Human-aware pizza timing: Impasto works backwards from bake time, keeps fermentation constraints intact, and plans practical quarter-hour actions around your sleep window.">
+<meta name="twitter:description" content="Pizza timing that works backwards from bake time, with guided mixing, dough temperature targets, human-aware scheduling, Live Bake and Proof Check.">
 <meta name="twitter:image" content="https://impastopizza.app/assets/og-image.png">
 <meta name="twitter:image:alt" content="Impasto: a pizza dough planner, showing a baking timeline with each step at a real clock time.">
 <link rel="canonical" href="https://impastopizza.app/">
@@ -45,7 +45,7 @@
       "name": "Impasto",
       "alternateName": "Impasto: Pizza Dough Planner",
       "url": "https://impastopizza.app/",
-      "description": "A free pizza dough calculator and human-aware fermentation planner for seven pizza styles, with practical quarter-hour scheduling, sleep-aware timing, Live Bake, mass-aware final-mix water temperature for preferments, sourdough, Proof Check, Bake Later and bake journaling.",
+      "description": "A free pizza dough calculator and human-aware fermentation planner for seven pizza styles, with guided mixing, readiness cues, precise dough temperature guidance, practical quarter-hour scheduling, Live Bake, sourdough, Proof Check, Bake Later and bake journaling.",
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": [
         "Android",
@@ -85,6 +85,10 @@
         "Direct dough, poolish, biga and sourdough",
         "Mixer- and preferment-aware final-mix water temperature",
         "Mass-aware thermal calculation for poolish, biga and sourdough levain",
+        "Structured mixing steps with actions, readiness cues and stop points",
+        "In-step temperature strip for kitchen, water, yeast water and dough target",
+        "Progressive explanations for temperature adjustments, warm kitchens and mixer effects",
+        "Preferment readiness cues for poolish, biga and levain",
         "Method-specific mixing guidance",
         "Flour recommendations",
         "Proof Check temperature adjustment",
@@ -552,6 +556,54 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 .wt-out .v{font-family:var(--font-display);font-weight:400;font-size:40px;line-height:1;color:#fff}
 .wt-out .v em{font-style:normal;color:var(--crust)}
 
+
+
+/* ============ GUIDED MIXING STEP (release update) ============ */
+.guided-step{
+  width:100%;max-width:360px;min-width:0;margin:0 auto;background:var(--bg-card);
+  border:1px solid var(--rule);border-radius:26px;padding:24px;
+  box-shadow:0 34px 66px -36px rgba(40,24,12,.45);text-align:left;
+}
+.gs-head{padding-bottom:16px;border-bottom:1px solid var(--rule-soft);margin-bottom:15px}
+.gs-head span{display:block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--tomato);margin-bottom:5px}
+.gs-head b{display:block;font-family:var(--font-display);font-size:23px;line-height:1.15;color:var(--char);font-weight:500}
+.gs-actions{display:flex;flex-direction:column;gap:10px;margin-bottom:15px}
+.gs-line{display:grid;grid-template-columns:25px 1fr;gap:10px;align-items:start;font-size:13px;line-height:1.45;color:var(--ink-soft)}
+.gs-line i{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;font-family:var(--font-mono);font-size:10px;font-style:normal;background:var(--bg-deep);color:var(--tomato);border:1px solid var(--rule-soft)}
+.gs-cue,.gs-stop{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center;padding:10px 12px;border-radius:13px;margin-top:8px}
+.gs-cue{background:rgba(217,138,61,.09);border:1px solid rgba(217,138,61,.18)}
+.gs-stop{background:rgba(182,60,45,.07);border:1px solid rgba(182,60,45,.16)}
+.gs-cue span,.gs-stop span{font-family:var(--font-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute)}
+.gs-cue b,.gs-stop b{font-size:12.5px;color:var(--ink);font-weight:600}
+.gs-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:14px}
+.gs-strip div{background:var(--bg-deep);border:1px solid var(--rule-soft);border-radius:12px;padding:9px 7px;text-align:center}
+.gs-strip span{display:block;font-family:var(--font-mono);font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:3px}
+.gs-strip b{font-family:var(--font-display);font-size:17px;color:var(--char);font-weight:500;white-space:nowrap}
+.gs-why{margin-top:13px;padding-top:12px;border-top:1px solid var(--rule-soft);font-size:11.5px;color:var(--ink-mute);display:flex;justify-content:space-between;align-items:center}
+.gs-why span{font-size:18px;color:var(--crust)}
+
+/* ============ IN-STEP TEMPERATURE STRIP (release update) ============ */
+.mix-temp-card{width:100%;max-width:370px;min-width:0;margin:0 auto;background:var(--bg-card);border:1px solid var(--rule);border-radius:26px;padding:24px;box-shadow:0 34px 66px -36px rgba(40,24,12,.45);text-align:left}
+.mt-tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px}
+.mt-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-bottom:17px}
+.mt-strip div{background:var(--bg-deep);border:1px solid var(--rule-soft);border-radius:13px;padding:11px 9px;text-align:center}
+.mt-strip span{display:block;font-family:var(--font-mono);font-size:8.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:4px}
+.mt-strip b{font-family:var(--font-display);font-size:20px;color:var(--char);font-weight:500;white-space:nowrap}
+.mt-action{display:grid;grid-template-columns:27px 1fr;gap:10px;padding:10px 0;border-top:1px dashed var(--rule)}
+.mt-action > span{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--bg-deep);border:1px solid var(--rule-soft);font-family:var(--font-mono);font-size:10px;color:var(--tomato)}
+.mt-action p{font-size:12.5px;line-height:1.45;color:var(--ink-soft);margin:0}
+.mt-action p b{color:var(--ink);font-weight:600}
+.mt-stop{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center;background:rgba(182,60,45,.07);border:1px solid rgba(182,60,45,.16);border-radius:13px;padding:10px 12px;margin-top:8px}
+.mt-stop span{font-family:var(--font-mono);font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute)}
+.mt-stop b{font-size:13px;color:var(--ink);font-weight:600}
+.mt-why{margin-top:12px;padding-top:11px;border-top:1px solid var(--rule-soft);font-family:var(--font-mono);font-size:9.5px;letter-spacing:.02em;color:var(--tomato)}
+.mt-why span{font-family:var(--font-body);font-size:11.5px;letter-spacing:0;color:var(--ink-mute);margin-left:5px}
+@media(max-width:420px){
+  .guided-step,.mix-temp-card{padding:20px 18px}
+  .gs-strip{grid-template-columns:1fr 1fr 1fr}
+  .mt-strip{grid-template-columns:1fr 1fr}
+}
+
 /* ============ LIVE BAKE SYSTEM-SURFACE MOCK ============ */
 .livebake-demo{
   width:100%;max-width:344px;min-width:0;margin:0 auto;padding:18px;
@@ -638,10 +690,10 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <div class="hero-news reveal"><span class="new-pill">New</span><a href="#human-schedule">Human-aware scheduling · see how it works →</a></div>
+        <div class="hero-news reveal"><span class="new-pill">New</span><a href="#features">Guided mixing + dough temperature · see what changed →</a></div>
         <div class="eyebrow reveal">Pizzeria · di casa</div>
         <h1 class="reveal">Pizza dough,<br>planned to the <em>hour.</em></h1>
-        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there, then turns the technical fermentation plan into a <b>human one</b>: practical quarter-hour actions, sleep-aware timing and no rewriting steps you already completed. The dough still comes first; your night does not have to lose.</p>
+        <p class="hero-sub reveal">Tell Impasto when you want to eat. It works backwards from there, turns the technical fermentation plan into a <b>human one</b>, then guides the mix with clear actions, readiness cues, stop points and the temperatures that matter. The dough still comes first; the instructions stay out of your way.</p>
         <div class="cta-row reveal">
           <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.floppyrom.impasto">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.3 13 12 3.6 21.7c-.3-.2-.5-.5-.5-1V3.3c0-.5.2-.8.5-1Zm10.8 10.8 2.9 3-9.2 5.3 6.3-8.3Zm0-2.2L8.1 2.6l9.2 5.3-2.9 3Zm1.4 1.1 3.4-2c.6-.3.6-1.2 0-1.5l-2.5-1.4-2.7 2.8 1.8 2.1Z"/></svg>
@@ -698,8 +750,8 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
       </div>
       <div class="card reveal">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h4>3 · Follow a human timeline</h4>
-        <p>Future actions land on practical quarter-hour times where the dough allows it, while sleep hours and fermentation limits stay part of the plan. Optional reminders tap you on the shoulder when it is time to act.</p>
+        <h4>3 · Follow a guided timeline</h4>
+        <p>See the real clock time, the action to take, the cue that tells you it is ready, and the stop point that matters. Extra technical explanation stays available when you want it.</p>
       </div>
     </div>
   </div>
@@ -765,17 +817,33 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
   <div class="wrap">
     <div class="feat">
       <div class="feat-media reveal">
-        <div class="phone"><div class="phone-screen"><img src="assets/screen-timeline.webp" alt="Timeline of dough steps with clock times" loading="lazy" decoding="async"></div></div>
+        <div class="guided-step" role="img" aria-label="Impasto guided mixing step showing actions, a readiness cue, a dough temperature stop point and a compact temperature strip">
+          <div class="gs-head"><span>Sat 08:00 · build</span><b>Build the final dough</b></div>
+          <div class="gs-actions">
+            <div class="gs-line"><i>1</i><span>Loosen the ripe poolish in the final water.</span></div>
+            <div class="gs-line"><i>2</i><span>Add the flour, then add the salt.</span></div>
+            <div class="gs-line"><i>3</i><span>Mix continuously to full development.</span></div>
+          </div>
+          <div class="gs-cue"><span>Cue</span><b>Smooth, elastic and windowpane-thin.</b></div>
+          <div class="gs-stop"><span>Stop</span><b>Dough around 24°C</b></div>
+          <div class="gs-strip">
+            <div><span>Kitchen</span><b>21°C</b></div>
+            <div><span>Water</span><b>13°C</b></div>
+            <div><span>Dough target</span><b>24°C</b></div>
+          </div>
+          <div class="gs-why">Why these temperatures? <span>›</span></div>
+        </div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">Il tempo · the timeline</div>
-        <h3>Every step at a real time you can live with.</h3>
-        <p>No more "rest for 4 hours" and mental arithmetic. Impasto shows <b>"Fri 14:00"</b>, not "after 4 hours." Filled dots are the moments you do something; hollow dots are the long waits while the dough does the work.</p>
+        <h3>What to do, what to look for, and when to stop.</h3>
+        <p>The timeline still gives every step a real clock time. Mixing steps now separate the essential action from the cue that tells you the dough is ready and the stop point that keeps the process on target.</p>
         <ul class="feat-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real clock times</b> for every mix, fold, shape and bake.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b> follows your bake in real time, so you always know the current step at a glance.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Human-aware scheduling</b> that actively rebalances flexible stages around your sleep window while keeping technical fermentation limits hard.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Quarter-hour actions</b> where the recipe allows it, plus optional reminders so you can get on with your day.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Actions stay scannable:</b> ingredient order and mixing sequence are broken into clear steps instead of one dense paragraph.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Readiness cues are visible:</b> poolish, biga and levain tell you what maturity looks like, not only how long to wait.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Stop points are explicit:</b> windowpane, dough development and target temperature sit where you need them.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Extra reasoning stays optional.</b> Technical explanations sit behind a compact "Why?" so the core instruction remains easy to scan.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A live <b>"Now" marker</b>, human-aware scheduling and optional reminders still follow the same resolved plan.</span></li>
         </ul>
       </div>
     </div>
@@ -848,26 +916,31 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
 
     <div class="feat">
       <div class="feat-media reveal">
-        <div class="wtemp">
-          <div class="wtemp-tag">Water temperature · 70% dough · 60% biga · stand mixer</div>
-          <div class="wt-in"><div class="wt-label">Target dough<b>after mixing</b></div><div class="wt-val">24<span class="u">°C</span></div></div>
-          <div class="wt-in"><div class="wt-label">Kitchen + ripe biga<b>both at final mix</b></div><div class="wt-val">21<span class="u">°C</span></div></div>
-          <div class="wt-in"><div class="wt-label">Biga hydration<b>actual water already inside</b></div><div class="wt-val">45<span class="u">%</span></div></div>
-          <div class="wt-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="wt-out"><div class="t">Use remaining water at</div><div class="v"><em>13</em>°C</div></div>
+        <div class="mix-temp-card">
+          <div class="mt-tag">Inside the mix step · active dry example</div>
+          <div class="mt-strip">
+            <div><span>Kitchen</span><b>21°C</b></div>
+            <div><span>Main water</span><b>13°C</b></div>
+            <div><span>Yeast water</span><b>38°C</b></div>
+            <div><span>Dough target</span><b>24°C</b></div>
+          </div>
+          <div class="mt-action"><span>1</span><p><b>Activate the yeast first.</b><br>Use the warm yeast-water portion, then add it with the final mix.</p></div>
+          <div class="mt-action"><span>2</span><p><b>Use the main water at its own temperature.</b><br>The two portions are solved together so the dough still lands on target.</p></div>
+          <div class="mt-stop"><span>Stop</span><b>Dough around 24°C</b></div>
+          <div class="mt-why">Why? <span>Impasto explains the split only when you want the detail.</span></div>
         </div>
       </div>
       <div class="feat-copy reveal">
         <div class="kicker">La temperatura · dough temperature</div>
-        <h3>Water to the degree, with the preferment counted properly.</h3>
-        <p>Great dough should finish mixing at the right temperature: too warm and it races ahead, too cold and it stalls. Impasto now works from what is <b>actually in the bowl</b>. For poolish, biga and sourdough, it accounts for the flour and water already inside the preferment, its temperature, and the water still left to add before giving you the final-mix water temperature.</p>
+        <h3>The temperatures you need, in the step where you need them.</h3>
+        <p>Impasto still solves final dough temperature from what is <b>actually in the bowl</b>, including preferment mass, room temperature and mixer heat. The result is now surfaced directly in the mixing step as a compact temperature strip, so the calculation becomes something you can use at a glance.</p>
         <ul class="feat-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Uses a <b>method-specific final dough target</b>: 24°C for yeasted doughs and 25.5°C for sourdough.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Preferment amount now matters thermally.</b> A small poolish or biga no longer has the same influence as one carrying most of the flour.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Uses the actual preferment composition:</b> 100% hydration poolish, 45% hydration biga, and the real levain amount and starter hydration for sourdough.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Reads your kitchen and your mixer</b>: room temperature and the heat added by hand mixing, a stand mixer or a food processor all shift the recommendation.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Changes the technique too:</b> mixing time, speed and development cues adapt to the way you mix.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>If the target is not realistically reachable within safe water temperatures, <b>Impasto tells you where the dough is likely to land</b> instead of pretending otherwise.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Kitchen, water and dough target</b> sit together instead of being buried in prose.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>With active dry yeast, Impasto shows <b>Main water and Yeast water separately</b>, including the warm activation portion.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Preferments are counted thermally:</b> poolish, biga and levain contribute according to their real masses and composition.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Hand, stand mixer and food processor</b> each change the recommendation because they add different amounts of heat.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>If the target cannot realistically be reached, <b>the step shows the likely finishing temperature</b> and gives practical guidance instead of hiding the limitation.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l4 4L19 6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>The technical reason for a split, clamp or processor adjustment is available behind <b>"Why?"</b>, leaving the essential instruction clean.</span></li>
         </ul>
       </div>
     </div>
@@ -973,7 +1046,7 @@ footer{border-top:1px solid var(--rule-soft);padding:48px 0 60px;margin-top:20px
     <div class="tl-track">
       <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Fri 19:00 · poolish</div><div class="tl-what">Mix the poolish</div><div class="tl-desc">Whisk yeast into water, stir in flour until smooth and cover. Plan on 12–14 h at room temperature.</div></div>
       <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Fri 19:00 → Sat 08:00</div><div class="tl-what">Poolish matures</div><div class="tl-desc">Use it when well expanded and deeply aerated, with the surface still slightly raised, before it begins to sink.</div></div>
-      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sat 08:00 · build</div><div class="tl-what">Build the final dough</div><div class="tl-desc">Loosen the ripe poolish in the final water, add flour, then salt, and mix continuously to the recipe's development target.</div></div>
+      <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sat 08:00 · build</div><div class="tl-what">Build the final dough</div><div class="tl-desc">Loosen the ripe poolish in the final water, add flour, then salt. Mix to development, use the windowpane cue, and stop at the dough-temperature target shown in the step.</div></div>
       <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Sat 09:00 → Sat 10:00</div><div class="tl-what">Short warm bulk</div><div class="tl-desc">One covered hour at room temperature before the long cold retard.</div></div>
       <div class="tl-step reveal"><div class="tl-dot wait"></div><div class="tl-when">Sat 10:00 → Sun 15:00</div><div class="tl-what">Cold retard</div><div class="tl-desc">29 h at 4°C in a lightly oiled, tightly covered container.</div></div>
       <div class="tl-step reveal"><div class="tl-dot act"></div><div class="tl-when">Sun 15:00 · shape</div><div class="tl-what">Pull, divide &amp; ball</div><div class="tl-desc">Bring the dough out of the fridge, divide it and shape gently for the final warm proof.</div></div>
